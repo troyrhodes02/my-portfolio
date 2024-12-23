@@ -13,7 +13,6 @@ export const Hero = () => {
       transition={{ duration: 1 }}
       sx={{
         position: "relative",
-        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -28,6 +27,7 @@ export const Hero = () => {
           alignItems: "center",
           justifyContent: "center",
           gap: { xs: "20px", md: "50px" },
+          paddingBottom: { md: "50px" },
         }}
       >
         <Stack
@@ -36,7 +36,7 @@ export const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           sx={{
-            width: { xs: "100%", md: "500px" },
+            width: { xs: "100%", md: "450px" },
           }}
         >
           <Typography

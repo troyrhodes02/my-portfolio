@@ -58,7 +58,7 @@ export const NavbarDesktop = () => {
 
   return (
     <AppBar
-      position="fixed"
+      position="static"
       sx={{
         boxShadow: "none",
         background: "transparent",
@@ -66,7 +66,7 @@ export const NavbarDesktop = () => {
         display: "flex",
         justifyContent: "center",
         transition: "background-color 0.3s ease",
-        alignItems: "center"
+        alignItems: "center",
       }}
     >
       <Toolbar
@@ -77,12 +77,24 @@ export const NavbarDesktop = () => {
         }}
       >
         <Stack direction="row" spacing={isSmallerScreen ? 2 : 5}>
-          <NavigationButton onClick={handleNavigation("/#projects")}>Resume</NavigationButton>
-          <NavigationButton onClick={handleNavigation("/#skills")}>Skills</NavigationButton>
-          <NavigationButton onClick={handleNavigation("/#home")}>Home</NavigationButton>
-          <NavigationButton onClick={handleNavigation("/#about")}>Projects</NavigationButton>
-          <NavigationButton onClick={handleNavigation("/#contact")}>Contact</NavigationButton>
-          <NavigationButton onClick={handleNavigation("/#contact")}>About</NavigationButton>
+          <NavigationButton onClick={handleNavigation("/#projects")}>
+            Resume
+          </NavigationButton>
+          <NavigationButton onClick={handleNavigation("/#skills")}>
+            Skills
+          </NavigationButton>
+          <NavigationButton onClick={handleNavigation("/#home")}>
+            Home
+          </NavigationButton>
+          <NavigationButton onClick={handleNavigation("/#about")}>
+            Projects
+          </NavigationButton>
+          <NavigationButton onClick={handleNavigation("/#contact")}>
+            Contact
+          </NavigationButton>
+          <NavigationButton onClick={handleNavigation("/#contact")}>
+            About
+          </NavigationButton>
         </Stack>
       </Toolbar>
     </AppBar>
