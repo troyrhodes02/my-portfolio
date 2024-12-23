@@ -2,10 +2,15 @@
 
 import { Stack, Typography, Box, Button } from "@mui/material";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
     <Stack
+      component={motion.div}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
       sx={{
         position: "relative",
         minHeight: "100vh",
@@ -26,6 +31,10 @@ export const Hero = () => {
         }}
       >
         <Stack
+          component={motion.div}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
           sx={{
             width: { xs: "100%", md: "500px" },
           }}
@@ -33,18 +42,34 @@ export const Hero = () => {
           <Typography
             variant="h1"
             sx={{
-              textAlign: { xs: "center", md: "left" },
+              textAlign: { xs: "center", md: "center" },
               color: "white",
               fontSize: { xs: "36px", sm: "48px", md: "72px" },
               fontWeight: 400,
               fontStyle: "italic",
-              wordWrap: "break-word",
             }}
           >
-            Hi, I'm William Rhodes
+            Hi, I'm
+          </Typography>
+          <Typography
+            variant="h1"
+            sx={{
+              textAlign: { xs: "center", md: "center" },
+              color: "white",
+              fontSize: { xs: "48px", sm: "64px", md: "96px" },
+              fontWeight: 400,
+              fontStyle: "italic",
+            }}
+          >
+            William Rhodes
           </Typography>
         </Stack>
         <Box
+          component={motion.div}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          whileHover={{ scale: 1.1, y: -10 }}
           sx={{
             position: "relative",
             width: { xs: "200px", sm: "250px", md: "400px" },
@@ -61,6 +86,10 @@ export const Hero = () => {
         </Box>
 
         <Stack
+          component={motion.div}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
           sx={{
             width: "auto",
             alignItems: { xs: "center", md: "center" },
@@ -91,6 +120,8 @@ export const Hero = () => {
           </Typography>
           <Button
             variant="contained"
+            component={motion.button}
+            whileHover={{ scale: 1.05 }}
             sx={{
               backgroundColor: "white",
               marginTop: "25px",

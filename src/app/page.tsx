@@ -2,6 +2,7 @@
 
 import { Box } from "@mui/material";
 import { Hero } from "../../components/sections/Hero";
+import { Navbar } from "../../components/navbar/Navbar";
 
 export default function Home() {
   return (
@@ -34,8 +35,8 @@ export default function Home() {
           zIndex: 2,
         }}
       >
-        <Hero />
-        <Hero />
+        <Navbar/>
+        <Hero/>
       </Box>
     </Box>
   );
