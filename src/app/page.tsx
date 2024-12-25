@@ -38,7 +38,7 @@ export default function Home() {
       >
         <Navbar />
         <Hero />
-        <SkillsOverview/>
+        <SkillsOverview />
       </Box>
     </Box>
   );

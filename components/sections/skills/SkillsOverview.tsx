@@ -10,4 +10,3 @@ export const SkillsOverview = () => {
 
   return isMobile ? <SkillsOverviewMobile /> : <SkillsOverviewDesktop />;
 };
-

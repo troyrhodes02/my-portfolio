@@ -3,19 +3,76 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { FaJsSquare, FaPython, FaReact, FaHtml5 } from "react-icons/fa";
-import { SiCplusplus, SiTypescript, SiMui, SiGraphql, SiNextdotjs, SiMongodb } from "react-icons/si";
+import {
+  SiCplusplus,
+  SiTypescript,
+  SiMui,
+  SiGraphql,
+  SiNextdotjs,
+  SiMongodb,
+} from "react-icons/si";
 
 const icons = [
-  { Icon: FaJsSquare, color: "#F7DF1E", name: "JavaScript", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-  { Icon: FaPython, color: "#3776AB", name: "Python", link: "https://www.python.org" },
-  { Icon: FaReact, color: "#61DAFB", name: "React", link: "https://reactjs.org" },
-  { Icon: SiCplusplus, color: "#00599C", name: "C++", link: "https://isocpp.org" },
-  { Icon: FaHtml5, color: "#E34F26", name: "HTML5", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
-  { Icon: SiTypescript, color: "#3178C6", name: "TypeScript", link: "https://www.typescriptlang.org" },
-  { Icon: SiMui, color: "#0081CB", name: "Material-UI", link: "https://mui.com" },
-  { Icon: SiGraphql, color: "#E10098", name: "GraphQL", link: "https://graphql.org" },
-  { Icon: SiNextdotjs, color: "#000000", name: "Next.js", link: "https://nextjs.org" },
-  { Icon: SiMongodb, color: "#47A248", name: "MongoDB", link: "https://www.mongodb.com" },
+  {
+    Icon: FaJsSquare,
+    color: "#F7DF1E",
+    name: "JavaScript",
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  {
+    Icon: FaPython,
+    color: "#3776AB",
+    name: "Python",
+    link: "https://www.python.org",
+  },
+  {
+    Icon: FaReact,
+    color: "#61DAFB",
+    name: "React",
+    link: "https://reactjs.org",
+  },
+  {
+    Icon: SiCplusplus,
+    color: "#00599C",
+    name: "C++",
+    link: "https://isocpp.org",
+  },
+  {
+    Icon: FaHtml5,
+    color: "#E34F26",
+    name: "HTML5",
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  },
+  {
+    Icon: SiTypescript,
+    color: "#3178C6",
+    name: "TypeScript",
+    link: "https://www.typescriptlang.org",
+  },
+  {
+    Icon: SiMui,
+    color: "#0081CB",
+    name: "Material-UI",
+    link: "https://mui.com",
+  },
+  {
+    Icon: SiGraphql,
+    color: "#E10098",
+    name: "GraphQL",
+    link: "https://graphql.org",
+  },
+  {
+    Icon: SiNextdotjs,
+    color: "#000000",
+    name: "Next.js",
+    link: "https://nextjs.org",
+  },
+  {
+    Icon: SiMongodb,
+    color: "#47A248",
+    name: "MongoDB",
+    link: "https://www.mongodb.com",
+  },
 ];
 
 export const SkillsOverviewMobile = () => {
@@ -78,7 +135,8 @@ export const SkillsOverviewMobile = () => {
               justifyContent: "space-between",
               width: "100%",
               padding: "10px 20px",
-              backgroundColor: index % 2 === 0 ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.2)",
+              backgroundColor:
+                index % 2 === 0 ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.2)",
               borderRadius: "8px",
               marginBottom: "10px",
             }}
@@ -113,4 +171,3 @@ export const SkillsOverviewMobile = () => {
     </Box>
   );
 };
-
