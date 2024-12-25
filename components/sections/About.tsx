@@ -1,12 +1,31 @@
 import React from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { motion } from "framer-motion";
 
 export const About = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, staggerChildren: 0.3 },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
     <Box
+      component={motion.div}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
       sx={{
         display: "flex",
         flexDirection: isMobile ? "column" : "row",
@@ -17,9 +36,10 @@ export const About = () => {
       }}
     >
       <Box
-        component="img"
+        component={motion.img}
         src="/me2.png"
         alt="William Rhodes"
+        variants={childVariants}
         sx={{
           height: isMobile
             ? { xs: "200px", sm: "300px", md: "400px" }
@@ -33,12 +53,16 @@ export const About = () => {
       />
 
       <Box
+        component={motion.div}
+        variants={childVariants}
         sx={{
           textAlign: isMobile ? "center" : "left",
           maxWidth: isMobile ? { xs: "90%", sm: "80%" } : "800px",
         }}
       >
         <Typography
+          component={motion.div}
+          variants={childVariants}
           sx={{
             marginBottom: 2,
             fontSize: isMobile
@@ -52,6 +76,8 @@ export const About = () => {
         </Typography>
 
         <Typography
+          component={motion.div}
+          variants={childVariants}
           sx={{
             fontSize: isMobile
               ? { xs: "16px", sm: "18px", md: "20px" }
