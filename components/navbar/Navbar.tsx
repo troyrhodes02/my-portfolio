@@ -12,13 +12,5 @@ export const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
-  return (
-    <Stack>
-      {isMobile ? (
-        <NavbarMobile />
-      ) : (
-        <NavbarDesktop/>
-      )}
-    </Stack>
-  );
+  return <Stack>{isMobile ? <NavbarMobile /> : <NavbarDesktop />}</Stack>;
 };

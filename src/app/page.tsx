@@ -3,14 +3,15 @@
 import { Box } from "@mui/material";
 import { Hero } from "../../components/sections/Hero";
 import { Navbar } from "../../components/navbar/Navbar";
+import { SkillsOverview } from "../../components/sections/skills/SkillsOverview";
 
 export default function Home() {
   return (
     <Box
       sx={{
         position: "relative",
-        height: "100vh",
-        overflow: "hidden",
+        minHeight: "100vh",
+        overflow: "auto",
       }}
     >
       <Box
@@ -35,8 +36,9 @@ export default function Home() {
           zIndex: 2,
         }}
       >
-        <Navbar/>
-        <Hero/>
+        <Navbar />
+        <Hero />
+        <SkillsOverview />
       </Box>
     </Box>
   );
