@@ -3,93 +3,31 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { FaJsSquare, FaPython, FaReact, FaHtml5 } from "react-icons/fa";
-import {
-  SiCplusplus,
-  SiTypescript,
-  SiMui,
-  SiGraphql,
-  SiNextdotjs,
-  SiMongodb,
-} from "react-icons/si";
+import { SiCplusplus, SiTypescript, SiMui, SiGraphql, SiNextdotjs, SiMongodb } from "react-icons/si";
 
 const icons = [
-  {
-    Icon: FaJsSquare,
-    color: "#F7DF1E",
-    name: "JavaScript",
-    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-  },
-  {
-    Icon: FaPython,
-    color: "#3776AB",
-    name: "Python",
-    link: "https://www.python.org",
-  },
-  {
-    Icon: FaReact,
-    color: "#61DAFB",
-    name: "React",
-    link: "https://reactjs.org",
-  },
-  {
-    Icon: SiCplusplus,
-    color: "#00599C",
-    name: "C++",
-    link: "https://isocpp.org",
-  },
-  {
-    Icon: FaHtml5,
-    color: "#E34F26",
-    name: "HTML5",
-    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-  },
-  {
-    Icon: SiTypescript,
-    color: "#3178C6",
-    name: "TypeScript",
-    link: "https://www.typescriptlang.org",
-  },
-  {
-    Icon: SiMui,
-    color: "#0081CB",
-    name: "Material-UI",
-    link: "https://mui.com",
-  },
-  {
-    Icon: SiGraphql,
-    color: "#E10098",
-    name: "GraphQL",
-    link: "https://graphql.org",
-  },
-  {
-    Icon: SiNextdotjs,
-    color: "#000000",
-    name: "Next.js",
-    link: "https://nextjs.org",
-  },
-  {
-    Icon: SiMongodb,
-    color: "#47A248",
-    name: "MongoDB",
-    link: "https://www.mongodb.com",
-  },
+  { Icon: FaJsSquare, color: "#F7DF1E", name: "JavaScript", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { Icon: FaPython, color: "#3776AB", name: "Python", link: "https://www.python.org" },
+  { Icon: FaReact, color: "#61DAFB", name: "React", link: "https://reactjs.org" },
+  { Icon: SiCplusplus, color: "#00599C", name: "C++", link: "https://isocpp.org" },
+  { Icon: FaHtml5, color: "#E34F26", name: "HTML5", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+  { Icon: SiTypescript, color: "#3178C6", name: "TypeScript", link: "https://www.typescriptlang.org" },
+  { Icon: SiMui, color: "#0081CB", name: "Material-UI", link: "https://mui.com" },
+  { Icon: SiGraphql, color: "#E10098", name: "GraphQL", link: "https://graphql.org" },
+  { Icon: SiNextdotjs, color: "#000000", name: "Next.js", link: "https://nextjs.org" },
+  { Icon: SiMongodb, color: "#47A248", name: "MongoDB", link: "https://www.mongodb.com" },
 ];
 
-export const SkillsOverview = () => {
+export const SkillsOverviewDesktop = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isNameVisible, setIsNameVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setIsLoaded(true), 500);
 
     const interval = setInterval(() => {
-      setIsNameVisible(false);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % icons.length);
-        setTimeout(() => setIsNameVisible(true), 200);
-      }, 300);
-    }, 3000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % icons.length);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -107,51 +45,27 @@ export const SkillsOverview = () => {
         };
       case 1:
         return {
-          transform: "translateX(200px) scale(0.9)",
+          transform: "translateX(250px) scale(0.9)",
           zIndex: 4,
           opacity: 0.9,
         };
       case 2:
         return {
-          transform: "translateX(400px) scale(0.8)",
+          transform: "translateX(500px) scale(0.8)",
           zIndex: 3,
           opacity: 0.8,
         };
-      case 3:
-        return {
-          transform: "translateX(600px) scale(0.7)",
-          zIndex: 2,
-          opacity: 0.7,
-        };
-      case 4:
-        return {
-          transform: "translateX(800px) scale(0.6)",
-          zIndex: 1,
-          opacity: 0.6,
-        };
       case icons.length - 1:
         return {
-          transform: "translateX(-200px) scale(0.9)",
+          transform: "translateX(-250px) scale(0.9)",
           zIndex: 4,
           opacity: 0.9,
         };
       case icons.length - 2:
         return {
-          transform: "translateX(-400px) scale(0.8)",
+          transform: "translateX(-500px) scale(0.8)",
           zIndex: 3,
           opacity: 0.8,
-        };
-      case icons.length - 3:
-        return {
-          transform: "translateX(-600px) scale(0.7)",
-          zIndex: 2,
-          opacity: 0.7,
-        };
-      case icons.length - 4:
-        return {
-          transform: "translateX(-800px) scale(0.6)",
-          zIndex: 1,
-          opacity: 0.6,
         };
       default:
         return {
@@ -197,7 +111,7 @@ export const SkillsOverview = () => {
             fontWeight: "bold",
             textTransform: "uppercase",
             letterSpacing: "15px",
-            fontSize: "72px",
+            fontSize: "64px",
             paddingX: "50px",
             paddingY: "10px",
             fontStyle: "italic",
@@ -214,8 +128,8 @@ export const SkillsOverview = () => {
           alignItems: "center",
           justifyContent: "center",
           width: "100%",
-          maxWidth: "800px",
-          height: "200px",
+          maxWidth: "1000px",
+          height: "250px",
         }}
       >
         {icons.map(({ Icon, color, name, link }, index) => (
@@ -228,13 +142,8 @@ export const SkillsOverview = () => {
               ...getPosition(index),
             }}
           >
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              <Icon size={125} color={color} />
+            <a href={link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+              <Icon size={150} color={color} />
             </a>
           </Box>
         ))}
@@ -246,22 +155,15 @@ export const SkillsOverview = () => {
           minHeight: "40px",
         }}
       >
-        {isNameVisible && (
-          <Typography
-            sx={{
-              color: "#FFFFFF",
-              fontSize: "24px",
-              fontWeight: "bold",
-              animation: "fadeIn 0.5s ease-in-out",
-              "@keyframes fadeIn": {
-                "0%": { opacity: 0 },
-                "100%": { opacity: 1 },
-              },
-            }}
-          >
-            {icons[currentIndex].name}
-          </Typography>
-        )}
+        <Typography
+          sx={{
+            color: "#FFFFFF",
+            fontSize: "28px",
+            fontWeight: "bold",
+          }}
+        >
+          {icons[currentIndex].name}
+        </Typography>
       </Box>
     </Box>
   );

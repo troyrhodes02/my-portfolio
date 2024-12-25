@@ -3,7 +3,7 @@
 import { Box } from "@mui/material";
 import { Hero } from "../../components/sections/Hero";
 import { Navbar } from "../../components/navbar/Navbar";
-import { SkillsOverview } from "../../components/sections/SkillsOverview";
+import { SkillsOverview } from "../../components/sections/skills/SkillsOverview";
 
 export default function Home() {
   return (
@@ -38,7 +38,7 @@ export default function Home() {
       >
         <Navbar />
         <Hero />
-        <SkillsOverview />
+        <SkillsOverview/>
       </Box>
     </Box>
   );
