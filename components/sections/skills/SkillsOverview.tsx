@@ -1,12 +1,13 @@
 "use client";
 
 import React from "react";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { SkillsOverviewDesktop } from "./SkillsOverviewDesktop";
 import { SkillsOverviewMobile } from "./SkillsOverviewMobile";
 
 export const SkillsOverview = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return isMobile ? <SkillsOverviewMobile /> : <SkillsOverviewDesktop />;
 };

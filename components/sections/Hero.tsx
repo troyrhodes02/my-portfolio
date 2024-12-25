@@ -23,7 +23,7 @@ export const Hero = () => {
       <Stack
         sx={{
           width: "100%",
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: { xs: "column", md: "column", lg: "row" },
           alignItems: "center",
           justifyContent: "center",
           gap: { xs: "20px", md: "50px" },
@@ -72,7 +72,7 @@ export const Hero = () => {
           whileHover={{ scale: 1.1, y: -10 }}
           sx={{
             position: "relative",
-            width: { xs: "200px", sm: "250px", md: "400px" },
+            width: { xs: "200px", sm: "250px", md: "400px", lg: "550px" },
             height: { xs: "300px", sm: "350px", md: "600px" },
           }}
         >
@@ -110,7 +110,7 @@ export const Hero = () => {
           <Typography
             variant="h1"
             sx={{
-              textAlign: { xs: "center", md: "left" },
+              textAlign: { xs: "center", md: "center" },
               color: "white",
               fontSize: { xs: "28px", sm: "36px", md: "48px" },
               fontWeight: 700,
