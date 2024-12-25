@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import { Hero } from "../../components/sections/Hero";
 import { Navbar } from "../../components/navbar/Navbar";
 import { SkillsOverview } from "../../components/sections/skills/SkillsOverview";
+import { About } from "../../components/sections/About";
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <SkillsOverview />
+        <About />
       </Box>
     </Box>
   );
