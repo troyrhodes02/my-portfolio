@@ -78,6 +78,7 @@ const icons = [
 export const SkillsOverviewMobile = () => {
   return (
     <Box
+      id="skills"
       sx={{
         display: "flex",
         flexDirection: "column",

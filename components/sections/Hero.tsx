@@ -136,7 +136,7 @@ export const Hero = () => {
               },
             }}
           >
-            View Resume
+            VIEW RESUME
           </Button>
         </Stack>
       </Stack>
