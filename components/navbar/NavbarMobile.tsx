@@ -82,8 +82,13 @@ export const NavbarMobile = () => {
         >
           <List>
             <ListItem disablePadding>
-              <NavigationButton onClick={handleNavigation("/#projects")}>
-                Resume
+              <NavigationButton onClick={handleNavigation("/#home")}>
+                Home
+              </NavigationButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <NavigationButton onClick={handleNavigation("/projects")}>
+                Projects
               </NavigationButton>
             </ListItem>
             <ListItem disablePadding>
@@ -92,18 +97,18 @@ export const NavbarMobile = () => {
               </NavigationButton>
             </ListItem>
             <ListItem disablePadding>
-              <NavigationButton onClick={handleNavigation("/#home")}>
-                Home
+              <NavigationButton onClick={handleNavigation("/#resume")}>
+                Resume
               </NavigationButton>
             </ListItem>
             <ListItem disablePadding>
               <NavigationButton onClick={handleNavigation("/#about")}>
-                Projects
+                About
               </NavigationButton>
             </ListItem>
             <ListItem disablePadding>
               <NavigationButton onClick={handleNavigation("/#contact")}>
-                About
+                Contact
               </NavigationButton>
             </ListItem>
           </List>

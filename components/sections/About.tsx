@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
@@ -22,6 +24,7 @@ export const About = () => {
 
   return (
     <Box
+        id="about"
       component={motion.div}
       variants={containerVariants}
       initial="hidden"

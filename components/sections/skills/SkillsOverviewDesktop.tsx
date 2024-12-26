@@ -135,6 +135,7 @@ export const SkillsOverviewDesktop = () => {
 
   return (
     <Box
+      id="skills"
       sx={{
         display: "flex",
         flexDirection: "column",
