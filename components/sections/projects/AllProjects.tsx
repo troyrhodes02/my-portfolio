@@ -80,6 +80,7 @@ export const AllProjects = () => {
             borderRadius: "26px",
             width: { xs: "200px", sm: "275px" },
           }}
+          href="mailto:wtrhodes02@gmail.com"
         >
           EMAIL
         </Button>
