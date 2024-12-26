@@ -1,3 +1,5 @@
+"use client"
+
 import { useMediaQuery } from "@mui/material";
 import { FeaturedProjectMobile } from "./FeaturedProjectMobile";
 import { FeaturedProjectTablet } from "./FeaturedProjectTablet";
