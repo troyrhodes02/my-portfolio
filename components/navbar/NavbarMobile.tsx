@@ -97,8 +97,8 @@ export const NavbarMobile = () => {
               </NavigationButton>
             </ListItem>
             <ListItem disablePadding>
-              <NavigationButton onClick={handleNavigation("/#resume")}>
-                Resume
+              <NavigationButton onClick={handleNavigation("/#casestudy")}>
+                Case Studies
               </NavigationButton>
             </ListItem>
             <ListItem disablePadding>

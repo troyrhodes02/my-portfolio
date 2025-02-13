@@ -77,8 +77,8 @@ export const NavbarDesktop = () => {
         }}
       >
         <Stack direction="row" spacing={isSmallerScreen ? 2 : 5}>
-          <NavigationButton onClick={handleNavigation("/#resume")}>
-            Resume
+          <NavigationButton onClick={handleNavigation("/#casestudy")}>
+            Case Studies
           </NavigationButton>
           <NavigationButton onClick={handleNavigation("/#skills")}>
             Skills
