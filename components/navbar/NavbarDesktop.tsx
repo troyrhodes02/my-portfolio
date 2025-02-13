@@ -4,7 +4,6 @@ import {
   AppBar,
   Toolbar,
   Button,
-  Box,
   Stack,
   styled,
   useMediaQuery,

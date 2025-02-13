@@ -49,7 +49,7 @@ export const Hero = () => {
               fontStyle: "italic",
             }}
           >
-            Hi, I'm
+            {`Hi, I'm`}
           </Typography>
           <Typography
             variant="h1"
