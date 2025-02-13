@@ -46,15 +46,18 @@ export const FeaturedProjectMobile = () => {
           borderRadius: "10px",
           width: "60%",
           margin: "0 auto",
+          position: "relative", 
+          height: "200px", 
         }}
         onClick={() => window.open("https://premierleaf.com", "_blank")}
       >
-        <img
+        <Image
           src="/premierleaf.png"
           alt="PremierLeaf Logo"
+          fill
           style={{
-            width: "100%",
-            height: "auto",
+            objectFit: "contain",
+            borderRadius: "10px",
           }}
         />
       </Box>

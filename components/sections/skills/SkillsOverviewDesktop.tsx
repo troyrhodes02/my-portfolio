@@ -190,7 +190,7 @@ export const SkillsOverviewDesktop = () => {
           height: "250px",
         }}
       >
-        {icons.map(({ Icon, color, name, link }, index) => (
+        {icons.map(({ Icon, color, link }, index) => (
           <Box
             key={index}
             sx={{

@@ -47,15 +47,18 @@ export const FeaturedProjectTablet = () => {
           borderRadius: "10px",
           width: "50%",
           margin: "0 auto",
+          position: "relative", // Required for Image with fill prop
+          height: "300px", // Set an explicit height for the container
         }}
         onClick={() => window.open("https://premierleaf.com", "_blank")}
       >
-        <img
+        <Image
           src="/premierleaf.png"
           alt="PremierLeaf Logo"
+          fill
           style={{
-            width: "100%",
-            height: "auto",
+            objectFit: "contain", // Adjust based on desired appearance (e.g., "cover")
+            borderRadius: "10px",
           }}
         />
       </Box>
