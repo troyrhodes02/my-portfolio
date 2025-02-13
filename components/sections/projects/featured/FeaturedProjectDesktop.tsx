@@ -17,7 +17,7 @@ export const FeaturedProjectDesktop = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        paddingX: { lg: "225px" },
+        paddingX: { lg: "150px" },
         paddingY: { lg: "125px" },
         gap: "50px",
       }}
@@ -34,9 +34,10 @@ export const FeaturedProjectDesktop = () => {
           sx={{
             color: "white",
             fontWeight: "800",
-            fontSize: "92px",
+            fontSize: "86px",
             textAlign: "center",
             fontStyle: "italic",
+            width: "1000px"
           }}
         >
           My Featured Project
@@ -48,13 +49,12 @@ export const FeaturedProjectDesktop = () => {
           transition={{ duration: 1 }}
           sx={{
             width: "176px",
-            height: "170px",
+            height: "145px",
             position: "relative",
             backgroundColor: "#FFFFFF",
             borderRadius: "51px",
             overflow: "hidden",
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
             boxShadow: "-10px 10px 10px rgba(0, 0, 0, 0.1)",
           }}
@@ -95,8 +95,7 @@ export const FeaturedProjectDesktop = () => {
             src="/premierleaf.png"
             alt="PremierLeaf Logo"
             style={{
-              maxWidth: "100%",
-              height: "auto",
+              height: "400px",
             }}
           />
         </Box>

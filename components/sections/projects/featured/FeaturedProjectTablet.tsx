@@ -40,35 +40,6 @@ export const FeaturedProjectTablet = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        sx={{
-          width: "160px",
-          height: "160px",
-          position: "relative",
-          backgroundColor: "#FFFFFF",
-          borderRadius: "51px",
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "-10px 10px 10px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <Image
-          src="/me3.png"
-          alt="Character Avatar"
-          layout="intrinsic"
-          width={160}
-          height={160}
-          objectFit="cover"
-          priority
-        />
-      </Box>
-
-      <Box
-        component={motion.div}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
         whileHover={{ scale: 1.05, y: -10 }}
         sx={{
           cursor: "pointer",

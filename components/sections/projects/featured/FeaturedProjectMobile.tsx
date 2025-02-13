@@ -34,36 +34,6 @@ export const FeaturedProjectMobile = () => {
       >
         My Featured Project
       </Typography>
-
-      <Box
-        component={motion.div}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        sx={{
-          width: "140px",
-          height: "140px",
-          position: "relative",
-          backgroundColor: "#FFFFFF",
-          borderRadius: "51px",
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "-10px 10px 10px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <Image
-          src="/me3.png"
-          alt="Character Avatar"
-          layout="intrinsic"
-          width={140}
-          height={140}
-          objectFit="cover"
-          priority
-        />
-      </Box>
-
       <Box
         component={motion.div}
         initial={{ opacity: 0, scale: 0.8 }}

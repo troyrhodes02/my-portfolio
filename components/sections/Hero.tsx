@@ -136,7 +136,7 @@ export const Hero = () => {
               },
             }}
           >
-            VIEW RESUME
+            VIEW CASE STUDIES
           </Button>
         </Stack>
       </Stack>

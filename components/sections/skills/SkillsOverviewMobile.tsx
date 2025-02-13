@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import { FaJsSquare, FaPython, FaReact, FaHtml5 } from "react-icons/fa";
 import {
