@@ -1,10 +1,14 @@
 "use client";
 
+import React from "react";
 import { Stack, Typography, Box, Button } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export const Hero = () => {
+  const router = useRouter();
+
   return (
     <Stack
       component={motion.div}
@@ -18,6 +22,7 @@ export const Hero = () => {
         justifyContent: "center",
         paddingX: { xs: "20px", sm: "40px", md: "75px" },
         paddingY: { xs: "50px", sm: "75px", md: "150px" },
+        gap: "50px",
       }}
     >
       <Stack
@@ -84,7 +89,6 @@ export const Hero = () => {
             priority
           />
         </Box>
-
         <Stack
           component={motion.div}
           initial={{ opacity: 0, x: 50 }}
@@ -125,7 +129,7 @@ export const Hero = () => {
             sx={{
               backgroundColor: "white",
               marginTop: "25px",
-              color: "#070735",
+              color: "#0A1128",
               fontWeight: "bold",
               fontSize: { xs: "16px", sm: "20px", md: "24px" },
               textTransform: "none",
@@ -134,7 +138,9 @@ export const Hero = () => {
               "&:hover": {
                 backgroundColor: "#f0f0f0",
               },
+              alignSelf: "center",
             }}
+            onClick={() => router.push("/cases")}
           >
             VIEW CASE STUDIES
           </Button>
