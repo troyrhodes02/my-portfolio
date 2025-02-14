@@ -48,7 +48,7 @@ export const FeaturedProjectTablet = () => {
           width: "50%",
           margin: "0 auto",
           position: "relative",
-          height: "300px", 
+          height: "300px",
         }}
         onClick={() => window.open("https://premierleaf.com", "_blank")}
       >
@@ -75,8 +75,8 @@ export const FeaturedProjectTablet = () => {
       >
         The PremierLeaf web application, built collaboratively with Tavaris
         Johnson using React, MaterialUI, and TypeScript, features a sleek,
-        responsive design that showcases the brand’s premium hemp products
-        while blending modern aesthetics with robust functionality.
+        responsive design that showcases the brand’s premium hemp products while
+        blending modern aesthetics with robust functionality.
       </Typography>
 
       <Button

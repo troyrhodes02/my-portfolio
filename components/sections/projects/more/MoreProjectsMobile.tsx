@@ -81,7 +81,8 @@ export const MoreProjectsMobile = () => {
             marginBottom: 4,
           }}
         >
-          Browse through the projects and tap on any card to visit or learn more.
+          Browse through the projects and tap on any card to visit or learn
+          more.
         </Typography>
       </motion.div>
 
@@ -134,4 +135,3 @@ export const MoreProjectsMobile = () => {
     </Box>
   );
 };
-
