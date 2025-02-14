@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Stack, Typography, Button, Box } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -90,12 +91,13 @@ export const FeaturedProjectDesktop = () => {
           }}
           onClick={() => window.open("https://premierleaf.com", "_blank")}
         >
-          <img
+          <Image
             src="/premierleaf.png"
             alt="PremierLeaf Logo"
-            style={{
-              height: "400px",
-            }}
+            layout="intrinsic"
+            width={600}
+            height={400}
+            objectFit="cover"
           />
         </Box>
 
