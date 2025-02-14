@@ -112,7 +112,8 @@ export const MoreProjectsDesktop = () => {
             fontSize: "26px",
           }}
         >
-          Browse through the carousel and click on any card to visit or learn more about each project.
+          Browse through the carousel and click on any card to visit or learn
+          more about each project.
         </Typography>
       </motion.div>
 

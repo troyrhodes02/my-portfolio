@@ -33,12 +33,12 @@ function LiveCodingMatrix() {
       ctx.fillStyle = "rgba(5, 5, 34, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#103309"; 
+      ctx.fillStyle = "#103309";
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
         const text = codeChars.charAt(
-          Math.floor(Math.random() * codeChars.length)
+          Math.floor(Math.random() * codeChars.length),
         );
         const x = i * fontSize;
         const y = drops[i] * fontSize;

@@ -6,7 +6,6 @@ import { NavbarMobile } from "./NavbarMobile";
 import { NavbarDesktop } from "./NavbarDesktop";
 
 export const Navbar = () => {
-
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 

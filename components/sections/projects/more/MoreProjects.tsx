@@ -11,4 +11,3 @@ export const MoreProjects = () => {
 
   return isMobile ? <MoreProjectsMobile /> : <MoreProjectsDesktop />;
 };
-

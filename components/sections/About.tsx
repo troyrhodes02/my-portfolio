@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
@@ -24,7 +24,7 @@ export const About = () => {
 
   return (
     <Box
-        id="about"
+      id="about"
       component={motion.div}
       variants={containerVariants}
       initial="hidden"
@@ -85,9 +85,7 @@ export const About = () => {
             fontSize: isMobile
               ? { xs: "16px", sm: "18px", md: "20px" }
               : "22px",
-            lineHeight: isMobile
-              ? { xs: "1.2", sm: "1.3", md: "1.5" }
-              : "1.5",
+            lineHeight: isMobile ? { xs: "1.2", sm: "1.3", md: "1.5" } : "1.5",
             fontWeight: "500",
           }}
         >
