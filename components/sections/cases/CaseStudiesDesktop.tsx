@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Box, Typography, Grid, Card, Button, CardActionArea } from "@mui/material";
+import { Box, Typography, Grid, Button } from "@mui/material";
 import { motion } from "framer-motion";
 
 export const mockProjects = [
