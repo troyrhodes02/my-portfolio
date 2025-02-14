@@ -5,6 +5,7 @@ import { Box, Typography, Card, CardActionArea } from "@mui/material";
 import Masonry from "@mui/lab/Masonry";
 import Image from "next/image";
 import StarIcon from "@mui/icons-material/Star";
+import { motion } from "framer-motion";
 
 export const MoreProjectsMobile = () => {
   const cards = [
@@ -47,76 +48,93 @@ export const MoreProjectsMobile = () => {
 
   return (
     <Box sx={{ padding: 2 }}>
-      <Typography
-        variant="h4"
-        align="center"
-        sx={{
-          color: "white",
-          fontWeight: 800,
-          marginBottom: 2,
-          fontStyle: "italic",
-        }}
+      {/* Title floats in from the left */}
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
       >
-        More Projects
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        align="center"
-        sx={{
-          color: "white",
-          fontWeight: 600,
-          marginBottom: 4,
-        }}
+        <Typography
+          variant="h4"
+          align="center"
+          sx={{
+            color: "white",
+            fontWeight: 800,
+            marginBottom: 2,
+            fontStyle: "italic",
+          }}
+        >
+          More Projects
+        </Typography>
+      </motion.div>
+
+      {/* Subtitle floats in from the right */}
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
       >
-        Browse through the projects and tap on any card to visit or learn more.
-      </Typography>
-      <Box
-        sx={{
-          margin: "0 auto",
-          ml: "15px"
-        }}
+        <Typography
+          variant="subtitle1"
+          align="center"
+          sx={{
+            color: "white",
+            fontWeight: 600,
+            marginBottom: 4,
+          }}
+        >
+          Browse through the projects and tap on any card to visit or learn more.
+        </Typography>
+      </motion.div>
+
+      {/* Masonry grid floats in from the right */}
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.4 }}
       >
-        <Masonry columns={2} spacing={2}>
-          {cards.map((card) => (
-            <Box key={card.id} sx={{ breakInside: "avoid", marginBottom: 2 }}>
-              {card.route ? (
-                <CardActionArea
-                  onClick={() => window.open(card.route, "_blank")}
-                  sx={{
-                    backgroundColor: card.backgroundColor,
-                    borderRadius: 2,
-                    padding: 2,
-                    height: 200,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    overflow: "hidden",
-                  }}
-                >
-                  {card.content}
-                </CardActionArea>
-              ) : (
-                <Card
-                  sx={{
-                    backgroundColor: card.backgroundColor,
-                    borderRadius: 2,
-                    padding: 2,
-                    height: 200,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    overflow: "hidden",
-                  }}
-                >
-                  {card.content}
-                </Card>
-              )}
-            </Box>
-          ))}
-        </Masonry>
-      </Box>
+        <Box sx={{ margin: "0 auto", ml: "15px" }}>
+          <Masonry columns={2} spacing={2}>
+            {cards.map((card) => (
+              <Box key={card.id} sx={{ breakInside: "avoid", marginBottom: 2 }}>
+                {card.route ? (
+                  <CardActionArea
+                    onClick={() => window.open(card.route, "_blank")}
+                    sx={{
+                      backgroundColor: card.backgroundColor,
+                      borderRadius: 2,
+                      padding: 2,
+                      height: 200,
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {card.content}
+                  </CardActionArea>
+                ) : (
+                  <Card
+                    sx={{
+                      backgroundColor: card.backgroundColor,
+                      borderRadius: 2,
+                      padding: 2,
+                      height: 200,
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {card.content}
+                  </Card>
+                )}
+              </Box>
+            ))}
+          </Masonry>
+        </Box>
+      </motion.div>
     </Box>
   );
 };
 
-export default MoreProjectsMobile;
