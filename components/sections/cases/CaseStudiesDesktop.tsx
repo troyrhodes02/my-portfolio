@@ -8,7 +8,7 @@ export const mockProjects = [
   {
     id: 1,
     title: "PremierLeaf Web App",
-    description: "Static snapshot loaded from plsite.png.",
+    description: "Prioritize your self-care, boost energy, and reclaim your life today with PremierLeaf.",
     icon: (
       <Box
         component="img"
@@ -23,7 +23,7 @@ export const mockProjects = [
   {
     id: 2,
     title: "YoungStarWorld Web App",
-    description: "Static snapshot loaded from a hardcoded image.",
+    description: "Meet Alyssa, a 21-year-old Dallas entrepreneur whose bold, empowering fashion lets youth shine.",
     icon: (
       <Box
         component="img"
