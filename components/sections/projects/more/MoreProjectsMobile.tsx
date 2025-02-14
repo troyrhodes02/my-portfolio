@@ -48,7 +48,6 @@ export const MoreProjectsMobile = () => {
 
   return (
     <Box sx={{ padding: 2 }}>
-      {/* Title floats in from the left */}
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -68,7 +67,6 @@ export const MoreProjectsMobile = () => {
         </Typography>
       </motion.div>
 
-      {/* Subtitle floats in from the right */}
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -87,7 +85,6 @@ export const MoreProjectsMobile = () => {
         </Typography>
       </motion.div>
 
-      {/* Masonry grid floats in from the right */}
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}

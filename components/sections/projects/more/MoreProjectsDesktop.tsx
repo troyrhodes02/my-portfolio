@@ -79,7 +79,6 @@ export const MoreProjectsDesktop = () => {
 
   return (
     <Box>
-      {/* Title floats in from the left */}
       <motion.div
         initial={{ x: -200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -99,7 +98,6 @@ export const MoreProjectsDesktop = () => {
         </Typography>
       </motion.div>
 
-      {/* Subtitle floats in from the right */}
       <motion.div
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -118,7 +116,6 @@ export const MoreProjectsDesktop = () => {
         </Typography>
       </motion.div>
 
-      {/* Carousel container floats in from the right */}
       <motion.div
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
