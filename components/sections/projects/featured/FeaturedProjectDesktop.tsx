@@ -26,7 +26,7 @@ export const FeaturedProjectDesktop = () => {
         direction={{ lg: "row" }}
         spacing={20}
         alignItems="center"
-        justifyContent="left"
+        justifyContent="center"
         sx={{ width: "100%" }}
       >
         <Typography
@@ -37,7 +37,6 @@ export const FeaturedProjectDesktop = () => {
             fontSize: "86px",
             textAlign: "center",
             fontStyle: "italic",
-            width: "1000px"
           }}
         >
           My Featured Project
@@ -48,7 +47,7 @@ export const FeaturedProjectDesktop = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
           sx={{
-            width: "176px",
+            width: "160px",
             height: "145px",
             position: "relative",
             backgroundColor: "#FFFFFF",
@@ -63,7 +62,7 @@ export const FeaturedProjectDesktop = () => {
             src="/me3.png"
             alt="Character Avatar"
             layout="intrinsic"
-            width={176}
+            width={150}
             height={178}
             objectFit="cover"
             priority
