@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { Box, Typography, Card, CardActionArea } from "@mui/material";
+import { Box, Typography, Card, Button } from "@mui/material";
 import Masonry from "@mui/lab/Masonry";
 
 export const mockProjects = [
   {
     id: 1,
     title: "PremierLeaf Web App",
-    description: "Static snapshot loaded from plsite.png.",
+    description: "Prioritize your self-care, boost energy, and reclaim your life today with PremierLeaf.",
     icon: (
       <Box
         component="img"
@@ -23,7 +23,8 @@ export const mockProjects = [
   {
     id: 2,
     title: "YoungStarWorld Web App",
-    description: "Static snapshot loaded from a hardcoded image.",
+    description:
+      "Meet Alyssa, a 21-year-old Dallas entrepreneur whose bold, empowering fashion lets youth shine.",
     icon: (
       <Box
         component="img"
@@ -141,29 +142,20 @@ export const CaseStudiesMobile = () => {
         <Masonry columns={1} spacing={2}>
           {mockProjects.map((project) => (
             <Box key={project.id} sx={{ breakInside: "avoid", marginBottom: 2 }}>
-              <CardActionArea
-                onClick={() => window.open(project.link, "_blank")}
-                sx={{ borderRadius: 2 }}
-              >
-                <Card
+              <Card sx={{ borderRadius: 2, overflow: "hidden" }}>
+                <Box
                   sx={{
-                    borderRadius: 2,
-                    overflow: "hidden",
+                    width: "100%",
+                    height: 150,
+                    backgroundColor: project.backgroundColor,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
-                  <Box
-                    sx={{
-                      width: "100%",
-                      height: 150,
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    {project.icon}
-                  </Box>
-                </Card>
-              </CardActionArea>
+                  {project.icon}
+                </Box>
+              </Card>
               <Box sx={{ mt: 1, p: 1 }}>
                 <Typography variant="h6" sx={{ color: "white", fontWeight: "bold", fontSize: "1.2rem" }}>
                   {project.title}
@@ -171,6 +163,41 @@ export const CaseStudiesMobile = () => {
                 <Typography variant="body2" sx={{ color: "white", fontSize: "0.9rem" }}>
                   {project.description}
                 </Typography>
+              </Box>
+              <Box sx={{ mt: 1, display: "flex", gap: "16px", justifyContent: "center" }}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "white",
+                    color: "black",
+                    borderRadius: "20px",
+                    fontWeight: "bold",
+                    "&:hover": { backgroundColor: "white" },
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                >
+                  Case Study
+                </Button>
+                {project.id === 5 ? null : (
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "white",
+                      color: "black",
+                      borderRadius: "20px",
+                      fontWeight: "bold",
+                      "&:hover": { backgroundColor: "white" },
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(project.link, "_blank");
+                    }}
+                  >
+                    {(project.id === 4 || project.id === 6) ? "Get App" : "View Site"}
+                  </Button>
+                )}
               </Box>
             </Box>
           ))}
