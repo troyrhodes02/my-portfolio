@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Box } from "@mui/material";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { Navbar } from "../../../components/navbar/Navbar";
 import { CaseStudies } from "../../../components/sections/cases/CaseStudies";
 
@@ -26,7 +24,8 @@ function LiveCodingMatrix() {
     const fontSize = 16;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = new Array(columns).fill(0);
-    const codeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=+{}[]<>?/|";
+    const codeChars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=+{}[]<>?/|";
 
     function draw() {
       ctx.fillStyle = "rgba(5, 5, 34, 0.05)";
@@ -35,7 +34,9 @@ function LiveCodingMatrix() {
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
-        const text = codeChars.charAt(Math.floor(Math.random() * codeChars.length));
+        const text = codeChars.charAt(
+          Math.floor(Math.random() * codeChars.length)
+        );
         const x = i * fontSize;
         const y = drops[i] * fontSize;
         ctx.fillText(text, x, y);
@@ -71,83 +72,6 @@ function LiveCodingMatrix() {
 }
 
 export default function Cases() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-      <Box
-        sx={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "white",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          zIndex: 9999,
-        }}
-      >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 1 }}
-          style={{ width: "150px", height: "150px", borderRadius: "50%" }}
-        >
-          <Image src="/me3.png" alt="Loading" width={150} height={150} />
-        </motion.div>
-        <Box sx={{ display: "flex", gap: "8px", mt: "50px" }}>
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
-            style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "50%",
-              backgroundColor: "#0A1128",
-            }}
-          />
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              duration: 0.8,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.2,
-            }}
-            style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "50%",
-              backgroundColor: "#0A1128",
-            }}
-          />
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              duration: 0.8,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.4,
-            }}
-            style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "50%",
-              backgroundColor: "#0A1128",
-            }}
-          />
-        </Box>
-      </Box>
-    );
-  }
-
   return (
     <Box sx={{ position: "relative", minHeight: "100vh", overflow: "auto" }}>
       <LiveCodingMatrix />

@@ -1,0 +1,41 @@
+[
+    {
+      "id": "premierleaf",
+      "title": "PremierLeaf Web App",
+      "headerImage": "/plsite.png",
+      "missionStatement": "Burnout is optional. At PremierLeaf, we go beyond quick fixes...",
+      "targetAudience": "High-achieving professionals looking for effective self-care.",
+      "contributions": [
+        {
+          "title": "UI/UX Development",
+          "details": [
+            "Designed and implemented multiple UI components.",
+            "Developed landing page sections including navbar, footer, and blog."
+          ]
+        }
+      ],
+      "techStack": ["React.js", "Next.js", "TypeScript", "Material UI", "Mailchimp API"],
+      "backgroundColor": "#a81d14",
+      "link": "https://premierleaf.com"
+    },
+    {
+      "id": "youngstarworld",
+      "title": "YoungStarWorld Web App",
+      "headerImage": "/youngstarworld.png",
+      "missionStatement": "A bold, empowering fashion brand for youth...",
+      "targetAudience": "Young creatives and fashion-forward individuals.",
+      "contributions": [
+        {
+          "title": "Brand Website Development",
+          "details": [
+            "Developed a sleek, modern e-commerce platform.",
+            "Optimized product showcase pages for high engagement."
+          ]
+        }
+      ],
+      "techStack": ["React.js", "Next.js", "Material UI", "Firebase"],
+      "backgroundColor": "#00796b",
+      "link": "https://youngstarworld.vercel.app"
+    }
+  ]
+  

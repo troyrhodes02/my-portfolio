@@ -8,7 +8,8 @@ export const mockProjects = [
   {
     id: 1,
     title: "PremierLeaf Web App",
-    description: "Prioritize your self-care, boost energy, and reclaim your life today with PremierLeaf.",
+    description:
+      "Prioritize your self-care, boost energy, and reclaim your life today with PremierLeaf.",
     icon: (
       <Box
         component="img"
@@ -39,7 +40,8 @@ export const mockProjects = [
   {
     id: 3,
     title: "GoNext Web App",
-    description: "A futuristic sports platform that redefines the online experience.",
+    description:
+      "A futuristic sports platform that redefines the online experience.",
     icon: (
       <Box
         component="img"
@@ -54,7 +56,8 @@ export const mockProjects = [
   {
     id: 4,
     title: "PremierLeaf Wellness Mobile App",
-    description: "A mobile app designed to promote wellness with an intuitive interface.",
+    description:
+      "A mobile app designed to promote wellness with an intuitive interface.",
     icon: (
       <Box
         component="img"
@@ -141,7 +144,10 @@ export const CaseStudiesMobile = () => {
       <Box sx={{ margin: "0 auto", maxWidth: 400, marginLeft: "15px" }}>
         <Masonry columns={1} spacing={2}>
           {mockProjects.map((project) => (
-            <Box key={project.id} sx={{ breakInside: "avoid", marginBottom: 2 }}>
+            <Box
+              key={project.id}
+              sx={{ breakInside: "avoid", marginBottom: 2 }}
+            >
               <Card sx={{ borderRadius: 2, overflow: "hidden" }}>
                 <Box
                   sx={{
@@ -157,14 +163,31 @@ export const CaseStudiesMobile = () => {
                 </Box>
               </Card>
               <Box sx={{ mt: 1, p: 1 }}>
-                <Typography variant="h6" sx={{ color: "white", fontWeight: "bold", fontSize: "1.2rem" }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: "1.2rem",
+                  }}
+                >
                   {project.title}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "white", fontSize: "0.9rem" }}>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "white", fontSize: "0.9rem" }}
+                >
                   {project.description}
                 </Typography>
               </Box>
-              <Box sx={{ mt: 1, display: "flex", gap: "16px", justifyContent: "center" }}>
+              <Box
+                sx={{
+                  mt: 1,
+                  display: "flex",
+                  gap: "16px",
+                  justifyContent: "center",
+                }}
+              >
                 <Button
                   variant="contained"
                   sx={{
@@ -195,7 +218,9 @@ export const CaseStudiesMobile = () => {
                       window.open(project.link, "_blank");
                     }}
                   >
-                    {(project.id === 4 || project.id === 6) ? "Get App" : "View Site"}
+                    {project.id === 4 || project.id === 6
+                      ? "Get App"
+                      : "View Site"}
                   </Button>
                 )}
               </Box>
