@@ -20,14 +20,8 @@ interface CaseStudyPageProps {
   params: { id: string };
 }
 
-const baseCardStyle = {
-  borderRadius: "16px",
-  boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-  mb: { xs: 2, sm: 4 },
-  p: { xs: 2, sm: 4 },
-};
-
-export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
+export default function CaseStudyPage({ params }: CaseStudyPageProps) {
+  const { id } = params;
   const caseStudies = getAllCaseStudies();
   const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
   if (!caseStudy) {
@@ -39,6 +33,12 @@ export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
   const cardBg = isYoungStarWorld ? "#888888" : "white";
   const cardTextColor = isYoungStarWorld ? "white" : "black";
   const containerTextColor = isYoungStarWorld ? "white" : "black";
+  const baseCardStyle = {
+    borderRadius: "16px",
+    boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+    mb: { xs: 2, sm: 4 },
+    p: { xs: 2, sm: 4 },
+  };
   const cardStyle = {
     ...baseCardStyle,
     backgroundColor: cardBg,
@@ -65,7 +65,7 @@ export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
                 src={caseStudy.headerImage}
                 alt={caseStudy.title}
                 width={600}
-                height={400}
+                height={200}
                 style={{ borderRadius: "8px", width: "100%" }}
               />
             </Box>
@@ -161,7 +161,9 @@ export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
                       <ListItem key={idx} disablePadding>
                         <ListItemText
                           primary={detail}
-                          sx={{ fontSize: { xs: "0.8rem", md: "0.9rem" } }}
+                          sx={{
+                            fontSize: { xs: "0.8rem", md: "0.9rem" },
+                          }}
                         />
                       </ListItem>
                     ))}

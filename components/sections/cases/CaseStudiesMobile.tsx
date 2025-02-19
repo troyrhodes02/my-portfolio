@@ -28,15 +28,11 @@ export const CaseStudiesMobile = () => {
       <Typography
         variant="subtitle1"
         align="center"
-        sx={{
-          color: "white",
-          fontWeight: 600,
-          marginBottom: 4,
-        }}
+        sx={{ color: "white", fontWeight: 600, marginBottom: 4 }}
       >
         Explore my projects and the creative journey behind each one.
       </Typography>
-      <Box sx={{ margin: "0 auto", maxWidth: 400, ml: "15px" }}>
+      <Box sx={{ margin: "0 auto", ml: "15px" }}>
         <Masonry columns={1} spacing={2}>
           {caseStudies.map((study) => (
             <Box key={study.id} sx={{ breakInside: "avoid", mb: 2 }}>
@@ -103,7 +99,7 @@ export const CaseStudiesMobile = () => {
                 >
                   Case Study
                 </Button>
-                {study.link && (
+                {(study.link || study.id === "premierleaf") && (
                   <Button
                     variant="contained"
                     sx={{
@@ -116,12 +112,11 @@ export const CaseStudiesMobile = () => {
                     }}
                     onClick={(e) => {
                       e.stopPropagation();
-                      window.open(
+                      const link =
                         study.id === "premierleaf"
                           ? "https://premierleaf.com"
-                          : study.link,
-                        "_blank"
-                      );
+                          : study.link;
+                      window.open(link, "_blank");
                     }}
                   >
                     {study.id === "premierleaf-wellness" ? "Get App" : "View Site"}
