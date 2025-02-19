@@ -1,16 +1,18 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import { getAllCaseStudies } from "../../../../data/caseStudies";
 import {
   Box,
   Container,
   Typography,
-  Divider,
   List,
   ListItem,
   ListItemText,
   Card,
   CardContent,
 } from "@mui/material";
+import Image from "next/image";
 import { CaseStudy } from "../../../../data/caseStudies";
 import { Navbar } from "../../../../components/navbar/Navbar";
 
@@ -59,10 +61,12 @@ export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
         <Card sx={{ ...cardStyle, p: { xs: 1, sm: 2 } }}>
           <CardContent>
             <Box sx={{ textAlign: "center", mb: { xs: 2, sm: 4 } }}>
-              <img
+              <Image
                 src={caseStudy.headerImage}
                 alt={caseStudy.title}
-                style={{ width: "100%", borderRadius: "8px" }}
+                width={600}
+                height={400}
+                style={{ borderRadius: "8px", width: "100%" }}
               />
             </Box>
             <Typography
@@ -131,10 +135,7 @@ export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
                 {caseStudy.myContributions ? "My Contributions" : "Contributions"}
               </Typography>
               {contributions.map((contribution, index) => (
-                <Box
-                  key={index}
-                  sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}
-                >
+                <Box key={index} sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}>
                   <Typography
                     variant="h5"
                     sx={{
@@ -160,9 +161,7 @@ export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
                       <ListItem key={idx} disablePadding>
                         <ListItemText
                           primary={detail}
-                          sx={{
-                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                          }}
+                          sx={{ fontSize: { xs: "0.8rem", md: "0.9rem" } }}
                         />
                       </ListItem>
                     ))}
@@ -213,10 +212,7 @@ export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
                 Challenges &amp; Solutions
               </Typography>
               {caseStudy.challenges.map((challenge, index) => (
-                <Box
-                  key={index}
-                  sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}
-                >
+                <Box key={index} sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}>
                   <Typography
                     variant="h5"
                     sx={{
@@ -260,9 +256,7 @@ export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
                       <ListItem key={idx} disablePadding>
                         <ListItemText
                           primary={sol}
-                          sx={{
-                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                          }}
+                          sx={{ fontSize: { xs: "0.8rem", md: "0.9rem" } }}
                         />
                       </ListItem>
                     ))}

@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { getAllCaseStudies } from "../../../data/caseStudies";
 
 export const CaseStudiesDesktop = () => {
@@ -29,7 +32,6 @@ export const CaseStudiesDesktop = () => {
           Explore my projects and the creative journey behind each one!
         </Typography>
       </Box>
-
       <Grid container spacing={4}>
         {caseStudies.map((study) => (
           <Grid item xs={12} sm={6} md={6} key={study.id}>
@@ -46,19 +48,20 @@ export const CaseStudiesDesktop = () => {
             >
               <Box
                 sx={{
-                  width: "100%",
+                  width: "800px",
                   height: "100%",
                   backgroundColor: study.backgroundColor || "#333",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  position: "relative",
                 }}
               >
-                <Box
-                  component="img"
+                <Image
                   src={study.headerImage}
                   alt={study.title}
-                  sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  layout="fill"
+                  objectFit="cover"
                 />
               </Box>
               <motion.div
@@ -112,7 +115,6 @@ export const CaseStudiesDesktop = () => {
                       "No mission statement provided."}
                   </Typography>
                 </Box>
-
                 <Box
                   sx={{
                     display: "flex",
@@ -171,10 +173,7 @@ export const CaseStudiesDesktop = () => {
                       }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open(
-                          "https://premierleaf.com/wellness-app",
-                          "_blank",
-                        );
+                        window.open("https://premierleaf.com/wellness-app", "_blank");
                       }}
                     >
                       Get App

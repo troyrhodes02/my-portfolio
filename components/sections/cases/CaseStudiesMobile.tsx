@@ -4,6 +4,7 @@ import React from "react";
 import { Box, Typography, Card, Button } from "@mui/material";
 import Masonry from "@mui/lab/Masonry";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { getAllCaseStudies, CaseStudy } from "../../../data/caseStudies";
 
 export const CaseStudiesMobile = () => {
@@ -48,13 +49,14 @@ export const CaseStudiesMobile = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    position: "relative",
                   }}
                 >
-                  <Box
-                    component="img"
+                  <Image
                     src={study.headerImage}
                     alt={study.title}
-                    sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    layout="fill"
+                    objectFit="cover"
                   />
                 </Box>
               </Card>
