@@ -2,20 +2,19 @@ import React from "react";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { getAllCaseStudies } from "../../../data/caseStudies"; // Use a helper function to get case studies
+import { getAllCaseStudies } from "../../../data/caseStudies";
 
 export const CaseStudiesDesktop = () => {
   const router = useRouter();
-  const caseStudies = getAllCaseStudies(); // Fetch data dynamically
+  const caseStudies = getAllCaseStudies();
 
   return (
     <Box sx={{ minHeight: "100vh", color: "white", p: "40px" }}>
-      {/* Page Heading */}
       <Box sx={{ textAlign: "center", mb: "40px" }}>
         <Typography
           sx={{
             mb: "20px",
-            fontSize: { xs: "4rem", md: "8rem" }, // Responsive font size
+            fontSize: { xs: "4rem", md: "8rem" },
             fontWeight: "bold",
             letterSpacing: "10px",
             fontStyle: "italic",
@@ -24,15 +23,16 @@ export const CaseStudiesDesktop = () => {
         >
           Case Studies
         </Typography>
-        <Typography sx={{ fontSize: "2.2rem", fontWeight: "500", textAlign: "center" }}>
+        <Typography
+          sx={{ fontSize: "2.2rem", fontWeight: "500", textAlign: "center" }}
+        >
           Explore my projects and the creative journey behind each one!
         </Typography>
       </Box>
 
-      {/* Case Study Grid */}
       <Grid container spacing={4}>
         {caseStudies.map((study) => (
-          <Grid item xs={12} sm={6} md={4} key={study.id}>
+          <Grid item xs={12} sm={6} md={6} key={study.id}>
             <motion.div
               initial="rest"
               whileHover="hover"
@@ -44,7 +44,6 @@ export const CaseStudiesDesktop = () => {
                 height: "350px",
               }}
             >
-              {/* Image Background */}
               <Box
                 sx={{
                   width: "100%",
@@ -62,8 +61,6 @@ export const CaseStudiesDesktop = () => {
                   sx={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </Box>
-
-              {/* Hover Overlay */}
               <motion.div
                 variants={{
                   rest: { opacity: 0, backdropFilter: "none" },
@@ -86,7 +83,6 @@ export const CaseStudiesDesktop = () => {
                   textAlign: "center",
                 }}
               >
-                {/* Case Study Title & Description */}
                 <Typography
                   variant="h5"
                   sx={{
@@ -99,16 +95,32 @@ export const CaseStudiesDesktop = () => {
                 >
                   {study.title}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ mb: "16px", fontWeight: "bold", fontSize: "1.3rem" }}
-                  align="center"
-                >
-                  {study.missionStatement}
-                </Typography>
+                <Box sx={{ maxWidth: "80%" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      mb: "16px",
+                      fontWeight: "bold",
+                      fontSize: "1.3rem",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                    align="center"
+                  >
+                    {study.projectOverview?.missionStatement ||
+                      "No mission statement provided."}
+                  </Typography>
+                </Box>
 
-                {/* Buttons */}
-                <Box sx={{ display: "flex", gap: "16px" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "16px",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                  }}
+                >
                   <Button
                     variant="contained"
                     sx={{
@@ -116,6 +128,7 @@ export const CaseStudiesDesktop = () => {
                       color: "black",
                       borderRadius: "20px",
                       fontWeight: "bold",
+                      width: "200px",
                       "&:hover": { backgroundColor: "white" },
                     }}
                     onClick={(e) => {
@@ -125,7 +138,7 @@ export const CaseStudiesDesktop = () => {
                   >
                     Case Study
                   </Button>
-                  {study.link && (
+                  {(study.link || study.id === "premierleaf") && (
                     <Button
                       variant="contained"
                       sx={{
@@ -133,14 +146,35 @@ export const CaseStudiesDesktop = () => {
                         color: "black",
                         borderRadius: "20px",
                         fontWeight: "bold",
+                        width: "200px",
                         "&:hover": { backgroundColor: "white" },
                       }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open(study.link, "_blank");
+                        const link = study.link || "https://premierleaf.com";
+                        window.open(link, "_blank");
                       }}
                     >
                       View Project
+                    </Button>
+                  )}
+                  {study.id === "premierleaf-wellness" && (
+                    <Button
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "white",
+                        color: "black",
+                        borderRadius: "20px",
+                        fontWeight: "bold",
+                        width: "200px",
+                        "&:hover": { backgroundColor: "white" },
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open("https://premierleaf.com/wellness-app", "_blank");
+                      }}
+                    >
+                      Get App
                     </Button>
                   )}
                 </Box>

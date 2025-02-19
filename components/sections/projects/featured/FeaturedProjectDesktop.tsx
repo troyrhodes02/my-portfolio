@@ -35,7 +35,7 @@ export const FeaturedProjectDesktop = () => {
           sx={{
             color: "white",
             fontWeight: "800",
-            fontSize: "86px",
+            fontSize: "5rem",
             textAlign: "center",
             fontStyle: "italic",
           }}
@@ -88,13 +88,15 @@ export const FeaturedProjectDesktop = () => {
             cursor: "pointer",
             boxShadow: "-10px 10px 20px rgba(0, 0, 0, 0.2)",
             borderRadius: "10px",
+            width: { xs: "100%", md: "1500px" },
+            overflow: "hidden",
           }}
           onClick={() => window.open("https://premierleaf.com", "_blank")}
         >
           <Image
             src="/premierleaf.png"
             alt="PremierLeaf Logo"
-            layout="intrinsic"
+            layout="responsive"
             width={600}
             height={400}
             objectFit="cover"
@@ -103,7 +105,7 @@ export const FeaturedProjectDesktop = () => {
 
         <Stack
           sx={{
-            maxWidth: "800px",
+            maxWidth: "650px",
             textAlign: "center",
           }}
         >

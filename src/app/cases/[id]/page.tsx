@@ -1,37 +1,396 @@
 import { notFound } from "next/navigation";
-import { getCaseStudyById } from "../../../../data/caseStudies";
-import { Box, Container, Typography } from "@mui/material";
+import { getAllCaseStudies } from "../../../../data/caseStudies";
+import {
+  Box,
+  Container,
+  Typography,
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+  Card,
+  CardContent,
+} from "@mui/material";
+import { CaseStudy } from "../../../../data/caseStudies";
+import { Navbar } from "../../../../components/navbar/Navbar";
 
 interface CaseStudyPageProps {
   params: { id: string };
 }
 
-export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const caseStudy = await getCaseStudyById(params.id);
+// Common card styling (colors will be overridden based on the case study)
+const baseCardStyle = {
+  borderRadius: "16px",
+  boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+  mb: { xs: 2, sm: 4 },
+  p: { xs: 2, sm: 4 },
+};
+
+export default async function CaseStudyPage({
+  params: routeParams,
+}: CaseStudyPageProps) {
+  const { id } = await Promise.resolve(routeParams);
+  const caseStudies = getAllCaseStudies();
+  const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
 
   if (!caseStudy) {
     notFound();
   }
 
+  const contributions =
+    caseStudy.myContributions || caseStudy.contributions || [];
+
+  // Set colors based on case study id:
+  const isYoungStarWorld = caseStudy.id === "youngstarworld";
+  const cardBg = isYoungStarWorld ? "#888888" : "white";
+  const cardTextColor = isYoungStarWorld ? "white" : "black";
+  const containerTextColor = isYoungStarWorld ? "white" : "black";
+
+  // Merge the common card styles with the dynamic background and text color
+  const cardStyle = {
+    ...baseCardStyle,
+    backgroundColor: cardBg,
+    color: cardTextColor,
+  };
+
   return (
-    <Box sx={{ position: "relative", minHeight: "100vh", overflow: "auto" }}>
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <Box sx={{ textAlign: "center", mb: 4 }}>
-          <img
-            src={caseStudy.headerImage}
-            alt={caseStudy.title}
-            style={{ width: "100%", borderRadius: "8px" }}
-          />
-        </Box>
-        <Typography variant="h2" sx={{ mb: 2 }}>
-          {caseStudy.title}
-        </Typography>
-        <Typography variant="h5" sx={{ fontWeight: "bold", mt: 4 }}>
-          Mission Statement
-        </Typography>
-        <Typography variant="body1">
-          {caseStudy.missionStatement}
-        </Typography>
+    <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Navbar />
+      <Container
+        maxWidth="md"
+        sx={{
+          mt: { xs: 8, sm: 8, md: 8 },
+          mx: "auto",
+          width: { xs: "90%", sm: "80%", md: "70%" },
+          textAlign: "center",
+          color: containerTextColor,
+        }}
+      >
+        {/* Header Card */}
+        <Card sx={{ ...cardStyle, p: { xs: 1, sm: 2 } }}>
+          <CardContent>
+            <Box sx={{ textAlign: "center", mb: { xs: 2, sm: 4 } }}>
+              <img
+                src={caseStudy.headerImage}
+                alt={caseStudy.title}
+                style={{ width: "100%", borderRadius: "8px" }}
+              />
+            </Box>
+            <Typography
+              variant="h2"
+              sx={{
+                fontWeight: "bold",
+                mb: { xs: 2, sm: 2 },
+                fontSize: { xs: "2rem", md: "3rem" },
+              }}
+            >
+              {caseStudy.title}
+            </Typography>
+          </CardContent>
+        </Card>
+
+        {/* Project Overview Card */}
+        <Card sx={{ ...cardStyle }}>
+          <CardContent>
+            <Typography
+              variant="h4"
+              sx={{
+                mb: { xs: 2, sm: 2 },
+                fontWeight: 900,
+                textTransform: "uppercase",
+                fontSize: { xs: "1.5rem", md: "2rem" },
+              }}
+            >
+              Project Overview
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                mb: { xs: 2, sm: 2 },
+                fontSize: { xs: "0.9rem", md: "1rem" },
+              }}
+            >
+              <strong>Mission Statement:</strong>{" "}
+              {caseStudy.projectOverview
+                ? caseStudy.projectOverview.missionStatement
+                : caseStudy.missionStatement}
+            </Typography>
+            {caseStudy.projectOverview && (
+              <Typography
+                variant="body1"
+                sx={{
+                  mb: { xs: 2, sm: 4 },
+                  fontSize: { xs: "0.9rem", md: "1rem" },
+                }}
+              >
+                <strong>Target Audience:</strong>{" "}
+                {caseStudy.projectOverview.targetAudience}
+              </Typography>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Contributions Card */}
+        {contributions.length > 0 && (
+          <Card sx={{ ...cardStyle }}>
+            <CardContent>
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: { xs: 2, sm: 2 },
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  fontSize: { xs: "1.5rem", md: "2rem" },
+                }}
+              >
+                {caseStudy.myContributions ? "My Contributions" : "Contributions"}
+              </Typography>
+              {contributions.map((contribution, index) => (
+                <Box key={index} sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: 900,
+                      mb: 1,
+                      textTransform: "uppercase",
+                      fontSize: { xs: "1.1rem", md: "1.3rem" },
+                    }}
+                  >
+                    {contribution.title}
+                  </Typography>
+                  <List
+                    sx={{
+                      listStyleType: "disc",
+                      pl: 4,
+                      "& .MuiListItem-root": {
+                        display: "list-item",
+                        fontSize: { xs: "0.8rem", md: "0.9rem" },
+                      },
+                    }}
+                  >
+                    {contribution.details.map((detail, idx) => (
+                      <ListItem key={idx} disablePadding>
+                        <ListItemText
+                          primary={detail}
+                          sx={{
+                            fontSize: { xs: "0.8rem", md: "0.9rem" },
+                          }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
+              ))}
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Tech Stack & Tools Card */}
+        {caseStudy.techStack && (
+          <Card sx={{ ...cardStyle }}>
+            <CardContent>
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: { xs: 2, sm: 2 },
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  fontSize: { xs: "1.5rem", md: "2rem" },
+                }}
+              >
+                Tech Stack &amp; Tools
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  mb: { xs: 2, sm: 4 },
+                  fontSize: { xs: "0.9rem", md: "1rem" },
+                }}
+              >
+                {caseStudy.techStack.join(", ")}
+              </Typography>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Challenges & Solutions Card */}
+        {caseStudy.challenges && (
+          <Card sx={{ ...cardStyle }}>
+            <CardContent>
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: { xs: 2, sm: 2 },
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  fontSize: { xs: "1.5rem", md: "2rem" },
+                }}
+              >
+                Challenges &amp; Solutions
+              </Typography>
+              {caseStudy.challenges.map((challenge, index) => (
+                <Box key={index} sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: 900,
+                      mb: 1,
+                      textTransform: "uppercase",
+                      fontSize: { xs: "1.1rem", md: "1.3rem" },
+                    }}
+                  >
+                    {challenge.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mb: { xs: 1, sm: 1 },
+                      fontSize: { xs: "0.9rem", md: "1rem" },
+                    }}
+                  >
+                    <strong>Problem:</strong> {challenge.problem}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mb: { xs: 1, sm: 1 },
+                      fontSize: { xs: "0.9rem", md: "1rem" },
+                    }}
+                  >
+                    <strong>Solution:</strong>
+                  </Typography>
+                  <List
+                    sx={{
+                      listStyleType: "disc",
+                      pl: 4,
+                      "& .MuiListItem-root": {
+                        display: "list-item",
+                        fontSize: { xs: "0.8rem", md: "0.9rem" },
+                      },
+                    }}
+                  >
+                    {challenge.solution.map((sol, idx) => (
+                      <ListItem key={idx} disablePadding>
+                        <ListItemText
+                          primary={sol}
+                          sx={{
+                            fontSize: { xs: "0.8rem", md: "0.9rem" },
+                          }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
+              ))}
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Results & Impact Card */}
+        {caseStudy.results && (
+          <Card sx={{ ...cardStyle }}>
+            <CardContent>
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: { xs: 2, sm: 2 },
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  fontSize: { xs: "1.5rem", md: "2rem" },
+                }}
+              >
+                Results &amp; Impact
+              </Typography>
+              <List
+                sx={{
+                  listStyleType: "disc",
+                  pl: 4,
+                  textAlign: "left",
+                  "& .MuiListItem-root": {
+                    display: "list-item",
+                    fontSize: { xs: "0.8rem", md: "0.9rem" },
+                  },
+                }}
+              >
+                {caseStudy.results.map((result, index) => (
+                  <ListItem key={index} disablePadding>
+                    <ListItemText
+                      primary={result}
+                      sx={{ fontSize: { xs: "0.8rem", md: "0.9rem" } }}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Key Takeaways & Future Improvements Card */}
+        {caseStudy.keyTakeaways && (
+          <Card sx={{ ...cardStyle }}>
+            <CardContent>
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: { xs: 2, sm: 2 },
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  fontSize: { xs: "1.5rem", md: "2rem" },
+                }}
+              >
+                Key Takeaways &amp; Future Improvements
+              </Typography>
+              <List
+                sx={{
+                  listStyleType: "disc",
+                  pl: 4,
+                  textAlign: "left",
+                  "& .MuiListItem-root": {
+                    display: "list-item",
+                    fontSize: { xs: "0.8rem", md: "0.9rem" },
+                  },
+                }}
+              >
+                {caseStudy.keyTakeaways.map((takeaway, index) => (
+                  <ListItem key={index} disablePadding>
+                    <ListItemText
+                      primary={takeaway}
+                      sx={{ fontSize: { xs: "0.8rem", md: "0.9rem" } }}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Final Thoughts Card */}
+        {caseStudy.finalThoughts && (
+          <Card sx={{ ...cardStyle }}>
+            <CardContent>
+              <Typography
+                variant="h4"
+                sx={{
+                  mb: { xs: 2, sm: 2 },
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  fontSize: { xs: "1.5rem", md: "2rem" },
+                }}
+              >
+                Final Thoughts
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  mb: { xs: 2, sm: 4 },
+                  fontSize: { xs: "0.9rem", md: "1rem" },
+                }}
+              >
+                {caseStudy.finalThoughts}
+              </Typography>
+            </CardContent>
+          </Card>
+        )}
       </Container>
     </Box>
   );

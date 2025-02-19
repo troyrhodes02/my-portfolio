@@ -36,7 +36,7 @@ function LiveCodingMatrix() {
 
       for (let i = 0; i < drops.length; i++) {
         const text = codeChars.charAt(
-          Math.floor(Math.random() * codeChars.length)
+          Math.floor(Math.random() * codeChars.length),
         );
         const x = i * fontSize;
         const y = drops[i] * fontSize;
