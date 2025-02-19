@@ -4,7 +4,6 @@ import {
   Box,
   Container,
   Typography,
-  Divider,
   List,
   ListItem,
   ListItemText,
@@ -18,7 +17,6 @@ interface CaseStudyPageProps {
   params: { id: string };
 }
 
-// Common card styling (colors will be overridden based on the case study)
 const baseCardStyle = {
   borderRadius: "16px",
   boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
@@ -40,13 +38,11 @@ export default async function CaseStudyPage({
   const contributions =
     caseStudy.myContributions || caseStudy.contributions || [];
 
-  // Set colors based on case study id:
   const isYoungStarWorld = caseStudy.id === "youngstarworld";
   const cardBg = isYoungStarWorld ? "#888888" : "white";
   const cardTextColor = isYoungStarWorld ? "white" : "black";
   const containerTextColor = isYoungStarWorld ? "white" : "black";
 
-  // Merge the common card styles with the dynamic background and text color
   const cardStyle = {
     ...baseCardStyle,
     backgroundColor: cardBg,
@@ -66,7 +62,6 @@ export default async function CaseStudyPage({
           color: containerTextColor,
         }}
       >
-        {/* Header Card */}
         <Card sx={{ ...cardStyle, p: { xs: 1, sm: 2 } }}>
           <CardContent>
             <Box sx={{ textAlign: "center", mb: { xs: 2, sm: 4 } }}>
@@ -89,7 +84,6 @@ export default async function CaseStudyPage({
           </CardContent>
         </Card>
 
-        {/* Project Overview Card */}
         <Card sx={{ ...cardStyle }}>
           <CardContent>
             <Typography
@@ -130,7 +124,6 @@ export default async function CaseStudyPage({
           </CardContent>
         </Card>
 
-        {/* Contributions Card */}
         {contributions.length > 0 && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -190,7 +183,6 @@ export default async function CaseStudyPage({
           </Card>
         )}
 
-        {/* Tech Stack & Tools Card */}
         {caseStudy.techStack && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -218,7 +210,6 @@ export default async function CaseStudyPage({
           </Card>
         )}
 
-        {/* Challenges & Solutions Card */}
         {caseStudy.challenges && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -294,7 +285,6 @@ export default async function CaseStudyPage({
           </Card>
         )}
 
-        {/* Results & Impact Card */}
         {caseStudy.results && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -333,7 +323,6 @@ export default async function CaseStudyPage({
           </Card>
         )}
 
-        {/* Key Takeaways & Future Improvements Card */}
         {caseStudy.keyTakeaways && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -372,7 +361,6 @@ export default async function CaseStudyPage({
           </Card>
         )}
 
-        {/* Final Thoughts Card */}
         {caseStudy.finalThoughts && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
