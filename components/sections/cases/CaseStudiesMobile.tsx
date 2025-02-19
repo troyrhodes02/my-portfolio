@@ -101,7 +101,7 @@ export const CaseStudiesMobile = () => {
                 >
                   Case Study
                 </Button>
-                {study.id !== 5 && (
+                {study.link && (
                   <Button
                     variant="contained"
                     sx={{
@@ -114,16 +114,15 @@ export const CaseStudiesMobile = () => {
                     }}
                     onClick={(e) => {
                       e.stopPropagation();
-                      if (study.id === "premierleaf") {
-                        window.open("https://premierleaf.com", "_blank");
-                      } else {
-                        window.open(study.link, "_blank");
-                      }
+                      window.open(
+                        study.id === "premierleaf"
+                          ? "https://premierleaf.com"
+                          : study.link,
+                        "_blank"
+                      );
                     }}
                   >
-                    {study.id === "premierleaf-wellness"
-                      ? "Get App"
-                      : "View Site"}
+                    {study.id === "premierleaf-wellness" ? "Get App" : "View Site"}
                   </Button>
                 )}
               </Box>

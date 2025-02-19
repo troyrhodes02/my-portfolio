@@ -171,7 +171,10 @@ export const CaseStudiesDesktop = () => {
                       }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open("https://premierleaf.com/wellness-app", "_blank");
+                        window.open(
+                          "https://premierleaf.com/wellness-app",
+                          "_blank",
+                        );
                       }}
                     >
                       Get App
