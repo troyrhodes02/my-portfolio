@@ -4,6 +4,7 @@ import {
   Box,
   Container,
   Typography,
+  Divider,
   List,
   ListItem,
   ListItemText,
@@ -24,25 +25,18 @@ const baseCardStyle = {
   p: { xs: 2, sm: 4 },
 };
 
-export default async function CaseStudyPage({
-  params: routeParams,
-}: CaseStudyPageProps) {
-  const { id } = await Promise.resolve(routeParams);
+export default function CaseStudyPage({ params: { id } }: CaseStudyPageProps) {
   const caseStudies = getAllCaseStudies();
   const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
-
   if (!caseStudy) {
     notFound();
   }
-
   const contributions =
     caseStudy.myContributions || caseStudy.contributions || [];
-
   const isYoungStarWorld = caseStudy.id === "youngstarworld";
   const cardBg = isYoungStarWorld ? "#888888" : "white";
   const cardTextColor = isYoungStarWorld ? "white" : "black";
   const containerTextColor = isYoungStarWorld ? "white" : "black";
-
   const cardStyle = {
     ...baseCardStyle,
     backgroundColor: cardBg,
@@ -83,7 +77,6 @@ export default async function CaseStudyPage({
             </Typography>
           </CardContent>
         </Card>
-
         <Card sx={{ ...cardStyle }}>
           <CardContent>
             <Typography
@@ -123,7 +116,6 @@ export default async function CaseStudyPage({
             )}
           </CardContent>
         </Card>
-
         {contributions.length > 0 && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -136,9 +128,7 @@ export default async function CaseStudyPage({
                   fontSize: { xs: "1.5rem", md: "2rem" },
                 }}
               >
-                {caseStudy.myContributions
-                  ? "My Contributions"
-                  : "Contributions"}
+                {caseStudy.myContributions ? "My Contributions" : "Contributions"}
               </Typography>
               {contributions.map((contribution, index) => (
                 <Box
@@ -182,7 +172,6 @@ export default async function CaseStudyPage({
             </CardContent>
           </Card>
         )}
-
         {caseStudy.techStack && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -209,7 +198,6 @@ export default async function CaseStudyPage({
             </CardContent>
           </Card>
         )}
-
         {caseStudy.challenges && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -284,7 +272,6 @@ export default async function CaseStudyPage({
             </CardContent>
           </Card>
         )}
-
         {caseStudy.results && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -322,7 +309,6 @@ export default async function CaseStudyPage({
             </CardContent>
           </Card>
         )}
-
         {caseStudy.keyTakeaways && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
@@ -360,7 +346,6 @@ export default async function CaseStudyPage({
             </CardContent>
           </Card>
         )}
-
         {caseStudy.finalThoughts && (
           <Card sx={{ ...cardStyle }}>
             <CardContent>
