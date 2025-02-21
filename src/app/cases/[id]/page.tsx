@@ -14,6 +14,12 @@ import Image from "next/image";
 import { CaseStudy } from "../../../../data/caseStudies";
 import { Navbar } from "../../../../components/navbar/Navbar";
 
+// Generate static paths for each case study
+export async function generateStaticParams() {
+  const caseStudies = getAllCaseStudies();
+  return caseStudies.map((cs: CaseStudy) => ({ id: cs.id }));
+}
+
 interface CaseStudyPageProps {
   params: { id: string };
 }
