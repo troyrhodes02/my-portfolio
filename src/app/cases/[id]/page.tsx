@@ -24,7 +24,6 @@ export function generateStaticParams() {
 // in the props type. This should satisfy Next.js’s expected PageProps.
 export default function CaseStudyPage({
   params,
-  searchParams,
 }: {
   params: { id: string };
   searchParams: { [key: string]: string };
