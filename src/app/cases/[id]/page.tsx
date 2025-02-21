@@ -63,8 +63,9 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 src={caseStudy.headerImage}
                 alt={caseStudy.title}
                 width={600}
-                height={200}
-                style={{ borderRadius: "8px", width: "100%" }}
+                height={400}
+                sizes="(max-width: 960px) 300px, 600px"
+                style={{ borderRadius: "8px", width: "100%", height: "auto" }}
               />
             </Box>
             <Typography
