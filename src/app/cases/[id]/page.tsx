@@ -14,17 +14,14 @@ import Image from "next/image";
 import { CaseStudy } from "../../../../data/caseStudies";
 import { Navbar } from "../../../../components/navbar/Navbar";
 
-// Pre-generate static params for all case studies.
-export async function generateStaticParams() {
+// Synchronously generate static params for all case studies.
+export function generateStaticParams() {
   const caseStudies = getAllCaseStudies();
   return caseStudies.map((cs: CaseStudy) => ({ id: cs.id }));
 }
 
-// Instead of typing props strictly, we cast to any to bypass the Promise constraint.
-export default async function CaseStudyPage(props: any) {
-  // Ensure params is resolved and cast it to the expected shape.
-  const { id } = await Promise.resolve(props.params) as { id: string };
-
+export default function CaseStudyPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   const caseStudies = getAllCaseStudies();
   const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
   if (!caseStudy) {
