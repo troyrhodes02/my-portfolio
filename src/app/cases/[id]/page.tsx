@@ -20,17 +20,11 @@ export async function generateStaticParams() {
   return caseStudies.map((cs: CaseStudy) => ({ id: cs.id }));
 }
 
-// Define a union type that allows params to be either a plain object or a Promise.
-type PageParams = { id: string } | Promise<{ id: string }>;
+// Instead of typing props strictly, we cast to any to bypass the Promise constraint.
+export default async function CaseStudyPage(props: any) {
+  // Ensure params is resolved and cast it to the expected shape.
+  const { id } = await Promise.resolve(props.params) as { id: string };
 
-interface CaseStudyPageProps {
-  params: PageParams;
-}
-
-export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
-  // Always resolve params, whether it's synchronous or a promise.
-  const { id } = await Promise.resolve(params);
-  
   const caseStudies = getAllCaseStudies();
   const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
   if (!caseStudy) {
