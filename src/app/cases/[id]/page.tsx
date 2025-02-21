@@ -14,21 +14,23 @@ import Image from "next/image";
 import { CaseStudy } from "../../../../data/caseStudies";
 import { Navbar } from "../../../../components/navbar/Navbar";
 
-// Synchronously generate static params for all case studies.
-export function generateStaticParams() {
+// Generate static params (this async function returns a Promise automatically)
+export async function generateStaticParams() {
   const caseStudies = getAllCaseStudies();
   return caseStudies.map((cs: CaseStudy) => ({ id: cs.id }));
 }
 
-// Notice that we include both params and searchParams (even if unused)
-// in the props type. This should satisfy Next.js’s expected PageProps.
-export default function CaseStudyPage({
+// Note: We now type the props so that `params` is a Promise, which satisfies the expected type.
+export default async function CaseStudyPage({
   params,
+  searchParams,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
   searchParams: { [key: string]: string };
 }) {
-  const { id } = params;
+  // Await the params (even though they resolve immediately)
+  const { id } = await params;
+
   const caseStudies = getAllCaseStudies();
   const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
   if (!caseStudy) {
