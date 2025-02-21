@@ -14,18 +14,23 @@ import Image from "next/image";
 import { CaseStudy } from "../../../../data/caseStudies";
 import { Navbar } from "../../../../components/navbar/Navbar";
 
-// Generate static paths for each case study
+// Pre-generate static params for all case studies.
 export async function generateStaticParams() {
   const caseStudies = getAllCaseStudies();
   return caseStudies.map((cs: CaseStudy) => ({ id: cs.id }));
 }
 
+// Define a union type that allows params to be either a plain object or a Promise.
+type PageParams = { id: string } | Promise<{ id: string }>;
+
 interface CaseStudyPageProps {
-  params: { id: string };
+  params: PageParams;
 }
 
-export default function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const { id } = params;
+export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+  // Always resolve params, whether it's synchronous or a promise.
+  const { id } = await Promise.resolve(params);
+  
   const caseStudies = getAllCaseStudies();
   const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
   if (!caseStudy) {
