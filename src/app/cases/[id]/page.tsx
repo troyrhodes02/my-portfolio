@@ -18,7 +18,7 @@ interface CaseStudyPageProps {
   params: { id: string };
 }
 
-export default function CaseStudyPage({ params }: CaseStudyPageProps) {
+export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { id } = params;
   const caseStudies = getAllCaseStudies();
   const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
