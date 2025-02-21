@@ -20,7 +20,15 @@ export function generateStaticParams() {
   return caseStudies.map((cs: CaseStudy) => ({ id: cs.id }));
 }
 
-export default function CaseStudyPage({ params }: { params: { id: string } }) {
+// Notice that we include both params and searchParams (even if unused)
+// in the props type. This should satisfy Next.js’s expected PageProps.
+export default function CaseStudyPage({
+  params,
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: { [key: string]: string };
+}) {
   const { id } = params;
   const caseStudies = getAllCaseStudies();
   const caseStudy = caseStudies.find((cs: CaseStudy) => cs.id === id);
