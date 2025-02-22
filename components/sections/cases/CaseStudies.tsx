@@ -10,4 +10,4 @@ export const CaseStudies = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return isMobile ? <CaseStudiesMobile /> : <CaseStudiesDesktop />;
-}
+};

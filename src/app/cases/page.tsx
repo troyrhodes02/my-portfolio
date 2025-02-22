@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -26,7 +26,8 @@ function LiveCodingMatrix() {
     const fontSize = 16;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = new Array(columns).fill(0);
-    const codeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=+{}[]<>?/|";
+    const codeChars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=+{}[]<>?/|";
 
     function draw() {
       ctx.fillStyle = "rgba(5, 5, 34, 0.05)";
@@ -35,7 +36,9 @@ function LiveCodingMatrix() {
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
-        const text = codeChars.charAt(Math.floor(Math.random() * codeChars.length));
+        const text = codeChars.charAt(
+          Math.floor(Math.random() * codeChars.length),
+        );
         const x = i * fontSize;
         const y = drops[i] * fontSize;
         ctx.fillText(text, x, y);
@@ -74,7 +77,7 @@ export default function Cases() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
+    const timer = setTimeout(() => setLoading(false));
     return () => clearTimeout(timer);
   }, []);
 

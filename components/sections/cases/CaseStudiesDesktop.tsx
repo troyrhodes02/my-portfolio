@@ -3,122 +3,21 @@
 import React from "react";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import { motion } from "framer-motion";
-
-export const mockProjects = [
-  {
-    id: 1,
-    title: "PremierLeaf Web App",
-    description: "Prioritize your self-care, boost energy, and reclaim your life today with PremierLeaf.",
-    icon: (
-      <Box
-        component="img"
-        src="/plsite.png"
-        alt="PremierLeaf"
-        sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
-    ),
-    backgroundColor: "#a81d14",
-    link: "https://premierleaf.com",
-  },
-  {
-    id: 2,
-    title: "YoungStarWorld Web App",
-    description: "Meet Alyssa, a 21-year-old Dallas entrepreneur whose bold, empowering fashion lets youth shine.",
-    icon: (
-      <Box
-        component="img"
-        src="/youngstarworld.png"
-        alt="YoungStarWorld"
-        sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
-    ),
-    backgroundColor: "#00796b",
-    link: "https://youngstarworld.vercel.app",
-  },
-  {
-    id: 3,
-    title: "GoNext Web App",
-    description: "A futuristic sports platform that redefines the online experience.",
-    icon: (
-      <Box
-        component="img"
-        src="/gonextsite.png"
-        alt="GoNext Web App"
-        sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
-    ),
-    backgroundColor: "#512da8",
-    link: "https://gonextsports.com",
-  },
-  {
-    id: 4,
-    title: "PremierLeaf Wellness Mobile App",
-    description: "A mobile app designed to promote wellness with an intuitive interface.",
-    icon: (
-      <Box
-        component="img"
-        src="/plhome.png"
-        alt="PremierLeaf Wellness App"
-        sx={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "50% 10%",
-        }}
-      />
-    ),
-    backgroundColor: "#E0E0E0",
-    link: "https://example.com/premierleaf-wellness",
-  },
-  {
-    id: 5,
-    title: "PolitiMap Mobile App",
-    description: "A powerful visualization tool to map political data.",
-    icon: (
-      <Box
-        component="img"
-        src="/politimap.png"
-        alt="PolitiMap"
-        sx={{
-          width: "80%",
-          height: "80%",
-          objectFit: "contain",
-          margin: "auto",
-        }}
-      />
-    ),
-    backgroundColor: "#9ca5d4",
-    link: "https://example.com/politimap",
-  },
-  {
-    id: 6,
-    title: "GoNext Mobile App",
-    description: "Experience the mobile interface of GoNext in a sleek design.",
-    icon: (
-      <Box
-        component="img"
-        src="/gonextphone.png"
-        alt="GoNext Mobile App"
-        sx={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
-      />
-    ),
-    backgroundColor: "#ffa023",
-    link: "https://gonextsports.com/mobile",
-  },
-];
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { getAllCaseStudies } from "../../../data/caseStudies";
 
 export const CaseStudiesDesktop = () => {
+  const router = useRouter();
+  const caseStudies = getAllCaseStudies();
+
   return (
     <Box sx={{ minHeight: "100vh", color: "white", p: "40px" }}>
       <Box sx={{ textAlign: "center", mb: "40px" }}>
         <Typography
           sx={{
             mb: "20px",
-            fontSize: "8rem",
+            fontSize: { xs: "4rem", md: "8rem" },
             fontWeight: "bold",
             letterSpacing: "10px",
             fontStyle: "italic",
@@ -127,13 +26,15 @@ export const CaseStudiesDesktop = () => {
         >
           Case Studies
         </Typography>
-        <Typography sx={{ fontSize: "2.2rem", fontWeight: "500", textAlign: "center" }}>
+        <Typography
+          sx={{ fontSize: "2.2rem", fontWeight: "500", textAlign: "center" }}
+        >
           Explore my projects and the creative journey behind each one!
         </Typography>
       </Box>
       <Grid container spacing={4}>
-        {mockProjects.map((project) => (
-          <Grid item xs={4} key={project.id}>
+        {caseStudies.map((study) => (
+          <Grid item xs={12} sm={6} md={6} key={study.id}>
             <motion.div
               initial="rest"
               whileHover="hover"
@@ -145,25 +46,24 @@ export const CaseStudiesDesktop = () => {
                 height: "350px",
               }}
             >
-              {project.id === 1 ? (
-                <Box sx={{ width: "100%", height: "100%", backgroundColor: project.backgroundColor }}>
-                  {project.icon}
-                </Box>
-              ) : (
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    backgroundColor: project.backgroundColor,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: project.id === 6 ? "flex-end" : "center",
-                    p: project.id === 6 ? 0 : undefined,
-                  }}
-                >
-                  {project.icon}
-                </Box>
-              )}
+              <Box
+                sx={{
+                  width: "800px",
+                  height: "100%",
+                  backgroundColor: study.backgroundColor || "#333",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={study.headerImage}
+                  alt={study.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </Box>
               <motion.div
                 variants={{
                   rest: { opacity: 0, backdropFilter: "none" },
@@ -196,16 +96,33 @@ export const CaseStudiesDesktop = () => {
                     textAlign: "center",
                   }}
                 >
-                  {project.title}
+                  {study.title}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ mb: "16px", fontWeight: "bold", fontSize: "1.3rem" }}
-                  align="center"
+                <Box sx={{ maxWidth: "80%" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      mb: "16px",
+                      fontWeight: "bold",
+                      fontSize: "1.3rem",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                    align="center"
+                  >
+                    {study.projectOverview?.missionStatement ||
+                      "No mission statement provided."}
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "16px",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                  }}
                 >
-                  {project.description}
-                </Typography>
-                <Box sx={{ display: "flex", gap: "16px" }}>
                   <Button
                     variant="contained"
                     sx={{
@@ -213,15 +130,17 @@ export const CaseStudiesDesktop = () => {
                       color: "black",
                       borderRadius: "20px",
                       fontWeight: "bold",
+                      width: "200px",
                       "&:hover": { backgroundColor: "white" },
                     }}
                     onClick={(e) => {
                       e.stopPropagation();
+                      router.push(`/cases/${study.id}`);
                     }}
                   >
                     Case Study
                   </Button>
-                  {project.id === 5 ? null : (
+                  {(study.link || study.id === "premierleaf") && (
                     <Button
                       variant="contained"
                       sx={{
@@ -229,14 +148,38 @@ export const CaseStudiesDesktop = () => {
                         color: "black",
                         borderRadius: "20px",
                         fontWeight: "bold",
+                        width: "200px",
                         "&:hover": { backgroundColor: "white" },
                       }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open(project.link, "_blank");
+                        const link = study.link || "https://premierleaf.com";
+                        window.open(link, "_blank");
                       }}
                     >
-                      {(project.id === 4 || project.id === 6) ? "Get App" : "View Project"}
+                      View Project
+                    </Button>
+                  )}
+                  {study.id === "premierleaf-wellness" && (
+                    <Button
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "white",
+                        color: "black",
+                        borderRadius: "20px",
+                        fontWeight: "bold",
+                        width: "200px",
+                        "&:hover": { backgroundColor: "white" },
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(
+                          "https://premierleaf.com/wellness-app",
+                          "_blank",
+                        );
+                      }}
+                    >
+                      Get App
                     </Button>
                   )}
                 </Box>
