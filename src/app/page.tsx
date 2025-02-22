@@ -7,7 +7,7 @@ import { Hero } from "../../components/sections/Hero";
 import { SkillsOverview } from "../../components/sections/skills/SkillsOverview";
 import { About } from "../../components/sections/About";
 
-export function LiveCodingMatrix() {
+function LiveCodingMatrix() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {

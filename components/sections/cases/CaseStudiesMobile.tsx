@@ -67,7 +67,10 @@ export const CaseStudiesMobile = () => {
                 >
                   {study.title}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "white", fontSize: "0.9rem" }}>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "white", fontSize: "0.9rem" }}
+                >
                   {study.projectOverview?.missionStatement ||
                     study.missionStatement ||
                     ""}
@@ -119,7 +122,9 @@ export const CaseStudiesMobile = () => {
                       window.open(link, "_blank");
                     }}
                   >
-                    {study.id === "premierleaf-wellness" ? "Get App" : "View Site"}
+                    {study.id === "premierleaf-wellness"
+                      ? "Get App"
+                      : "View Site"}
                   </Button>
                 )}
               </Box>

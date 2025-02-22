@@ -24,7 +24,6 @@ export default async function CaseStudyPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-
   const { id } = await params;
 
   const caseStudies = getAllCaseStudies();
@@ -138,10 +137,15 @@ export default async function CaseStudyPage({
                   fontSize: { xs: "1.5rem", md: "2rem" },
                 }}
               >
-                {caseStudy.myContributions ? "My Contributions" : "Contributions"}
+                {caseStudy.myContributions
+                  ? "My Contributions"
+                  : "Contributions"}
               </Typography>
               {contributions.map((contribution, index) => (
-                <Box key={index} sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}>
+                <Box
+                  key={index}
+                  sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}
+                >
                   <Typography
                     variant="h5"
                     sx={{
@@ -220,7 +224,10 @@ export default async function CaseStudyPage({
                 Challenges &amp; Solutions
               </Typography>
               {caseStudy.challenges.map((challenge, index) => (
-                <Box key={index} sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}>
+                <Box
+                  key={index}
+                  sx={{ mb: { xs: 2, sm: 3 }, textAlign: "left" }}
+                >
                   <Typography
                     variant="h5"
                     sx={{

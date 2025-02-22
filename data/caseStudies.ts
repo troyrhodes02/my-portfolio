@@ -320,7 +320,10 @@ export function getAllCaseStudies(): CaseStudy[] {
   return caseStudies;
 }
 
-export const caseStudiesById: { [key: string]: CaseStudy } = caseStudies.reduce((acc, cs) => {
-  acc[cs.id] = cs;
-  return acc;
-}, {} as { [key: string]: CaseStudy });
+export const caseStudiesById: { [key: string]: CaseStudy } = caseStudies.reduce(
+  (acc, cs) => {
+    acc[cs.id] = cs;
+    return acc;
+  },
+  {} as { [key: string]: CaseStudy },
+);
