@@ -7,6 +7,15 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { getAllCaseStudies } from "../../../data/caseStudies";
 
+const gridItemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export const CaseStudiesDesktop = () => {
   const router = useRouter();
   const caseStudies = getAllCaseStudies();
@@ -21,7 +30,6 @@ export const CaseStudiesDesktop = () => {
             fontWeight: "bold",
             letterSpacing: "10px",
             fontStyle: "italic",
-            textAlign: "center",
           }}
         >
           Case Studies
@@ -36,111 +44,97 @@ export const CaseStudiesDesktop = () => {
         {caseStudies.map((study) => (
           <Grid item xs={12} sm={6} md={6} key={study.id}>
             <motion.div
-              initial="rest"
-              whileHover="hover"
-              animate="rest"
-              style={{
-                position: "relative",
-                borderRadius: "16px",
-                overflow: "hidden",
-                height: "350px",
-              }}
+              variants={gridItemVariants}
+              initial="hidden"
+              animate="visible"
             >
-              <Box
-                sx={{
-                  width: "800px",
-                  height: "100%",
-                  backgroundColor: study.backgroundColor || "#333",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  position: "relative",
-                }}
-              >
-                <Image
-                  src={study.headerImage}
-                  alt={study.title}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </Box>
               <motion.div
-                variants={{
-                  rest: { opacity: 0, backdropFilter: "none" },
-                  hover: { opacity: 1, backdropFilter: "blur(2px)" },
-                }}
-                transition={{ duration: 0.3 }}
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  backgroundColor: "rgba(0, 0, 0, 0.6)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: "16px",
-                  boxSizing: "border-box",
-                  textAlign: "center",
+                  position: "relative",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  height: "350px",
                 }}
               >
-                <Typography
-                  variant="h5"
+                <Box
                   sx={{
-                    mb: "8px",
-                    fontWeight: "bold",
-                    fontSize: "3rem",
-                    fontStyle: "italic",
+                    width: "800px",
+                    height: "100%",
+                    backgroundColor: study.backgroundColor || "#333",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    src={study.headerImage}
+                    alt={study.title}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </Box>
+                <motion.div
+                  variants={{
+                    rest: { opacity: 0, backdropFilter: "none" },
+                    hover: { opacity: 1, backdropFilter: "blur(2px)" },
+                  }}
+                  transition={{ duration: 0.3 }}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: "rgba(0, 0, 0, 0.6)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "16px",
+                    boxSizing: "border-box",
                     textAlign: "center",
                   }}
                 >
-                  {study.title}
-                </Typography>
-                <Box sx={{ maxWidth: "80%" }}>
                   <Typography
-                    variant="body2"
+                    variant="h5"
                     sx={{
-                      mb: "16px",
+                      mb: "8px",
                       fontWeight: "bold",
-                      fontSize: "1.3rem",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
+                      fontSize: "3rem",
+                      fontStyle: "italic",
                     }}
-                    align="center"
                   >
-                    {study.projectOverview?.missionStatement ||
-                      "No mission statement provided."}
+                    {study.title}
                   </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    gap: "16px",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Button
-                    variant="contained"
+                  <Box sx={{ maxWidth: "80%" }}>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        mb: "16px",
+                        fontWeight: "bold",
+                        fontSize: "1.3rem",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                      align="center"
+                    >
+                      {study.projectOverview?.missionStatement ||
+                        "No mission statement provided."}
+                    </Typography>
+                  </Box>
+                  <Box
                     sx={{
-                      backgroundColor: "white",
-                      color: "black",
-                      borderRadius: "20px",
-                      fontWeight: "bold",
-                      width: "200px",
-                      "&:hover": { backgroundColor: "white" },
-                    }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      router.push(`/cases/${study.id}`);
+                      display: "flex",
+                      gap: "16px",
+                      flexWrap: "wrap",
+                      justifyContent: "center",
                     }}
                   >
-                    Case Study
-                  </Button>
-                  {(study.link || study.id === "premierleaf") && (
                     <Button
                       variant="contained"
                       sx={{
@@ -153,36 +147,55 @@ export const CaseStudiesDesktop = () => {
                       }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        const link = study.link || "https://premierleaf.com";
-                        window.open(link, "_blank");
+                        router.push(`/cases/${study.id}`);
                       }}
                     >
-                      View Project
+                      Case Study
                     </Button>
-                  )}
-                  {study.id === "premierleaf-wellness" && (
-                    <Button
-                      variant="contained"
-                      sx={{
-                        backgroundColor: "white",
-                        color: "black",
-                        borderRadius: "20px",
-                        fontWeight: "bold",
-                        width: "200px",
-                        "&:hover": { backgroundColor: "white" },
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(
-                          "https://premierleaf.com/wellness-app",
-                          "_blank",
-                        );
-                      }}
-                    >
-                      Get App
-                    </Button>
-                  )}
-                </Box>
+                    {(study.link || study.id === "premierleaf") && (
+                      <Button
+                        variant="contained"
+                        sx={{
+                          backgroundColor: "white",
+                          color: "black",
+                          borderRadius: "20px",
+                          fontWeight: "bold",
+                          width: "200px",
+                          "&:hover": { backgroundColor: "white" },
+                        }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          const link = study.link || "https://premierleaf.com";
+                          window.open(link, "_blank");
+                        }}
+                      >
+                        View Project
+                      </Button>
+                    )}
+                    {study.id === "premierleaf-wellness" && (
+                      <Button
+                        variant="contained"
+                        sx={{
+                          backgroundColor: "white",
+                          color: "black",
+                          borderRadius: "20px",
+                          fontWeight: "bold",
+                          width: "200px",
+                          "&:hover": { backgroundColor: "white" },
+                        }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(
+                            "https://premierleaf.com/wellness-app",
+                            "_blank"
+                          );
+                        }}
+                      >
+                        Get App
+                      </Button>
+                    )}
+                  </Box>
+                </motion.div>
               </motion.div>
             </motion.div>
           </Grid>

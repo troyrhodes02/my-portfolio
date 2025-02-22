@@ -6,6 +6,7 @@ import { Navbar } from "../../components/navbar/Navbar";
 import { Hero } from "../../components/sections/Hero";
 import { SkillsOverview } from "../../components/sections/skills/SkillsOverview";
 import { About } from "../../components/sections/About";
+import { Footer } from "../../components/footer/Footer";
 
 function LiveCodingMatrix() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -30,7 +31,7 @@ function LiveCodingMatrix() {
       "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=+{}[]<>?/|";
 
     function draw() {
-      ctx.fillStyle = "rgba(5, 5, 34, 0.05)";
+      ctx.fillStyle = "#050522";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "#103309";
       ctx.font = `${fontSize}px monospace`;
@@ -82,6 +83,7 @@ export default function Home() {
         <Hero />
         <SkillsOverview />
         <About />
+        <Footer />
       </Box>
     </Box>
   );
