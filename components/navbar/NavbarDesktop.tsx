@@ -44,6 +44,10 @@ export const NavbarDesktop = () => {
   const isSmallerScreen = useMediaQuery(theme.breakpoints.down("lg"));
 
   const handleNavigation = (path: string) => () => {
+    if (path === "/#footer") {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      return;
+    }
     if (path.startsWith("/#")) {
       const elementId = path.substring(2);
       const element = document.getElementById(elementId);
@@ -88,7 +92,7 @@ export const NavbarDesktop = () => {
           <NavigationButton onClick={handleNavigation("/projects")}>
             Projects
           </NavigationButton>
-          <NavigationButton onClick={handleNavigation("/#contact")}>
+          <NavigationButton onClick={handleNavigation("/#footer")}>
             Contact
           </NavigationButton>
           <NavigationButton onClick={handleNavigation("/#about")}>
@@ -99,3 +103,5 @@ export const NavbarDesktop = () => {
     </AppBar>
   );
 };
+
+export default NavbarDesktop;

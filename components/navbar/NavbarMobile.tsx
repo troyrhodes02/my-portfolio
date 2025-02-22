@@ -29,6 +29,11 @@ export const NavbarMobile = () => {
 
   const handleNavigation = (path: string) => () => {
     setDrawerOpen(false);
+    if (path === "/#contact") {
+
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      return;
+    }
     if (path.startsWith("/#")) {
       const elementId = path.substring(2);
       const element = document.getElementById(elementId);
@@ -116,3 +121,5 @@ export const NavbarMobile = () => {
     </AppBar>
   );
 };
+
+export default NavbarMobile;
