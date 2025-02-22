@@ -14,21 +14,17 @@ import Image from "next/image";
 import { CaseStudy } from "../../../../data/caseStudies";
 import { Navbar } from "../../../../components/navbar/Navbar";
 
-// Generate static params (this async function returns a Promise automatically)
 export async function generateStaticParams() {
   const caseStudies = getAllCaseStudies();
   return caseStudies.map((cs: CaseStudy) => ({ id: cs.id }));
 }
 
-// Note: We now type the props so that `params` is a Promise, which satisfies the expected type.
 export default async function CaseStudyPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: { [key: string]: string };
 }) {
-  // Await the params (even though they resolve immediately)
+
   const { id } = await params;
 
   const caseStudies = getAllCaseStudies();
