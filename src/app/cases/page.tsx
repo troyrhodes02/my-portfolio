@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Navbar } from "../../../components/navbar/Navbar";
 import { CaseStudies } from "../../../components/sections/cases/CaseStudies";
+import Footer from "../../../components/footer/Footer"; // adjust the path as needed
 
 function LiveCodingMatrix() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -77,7 +78,7 @@ export default function Cases() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false));
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -158,16 +159,15 @@ export default function Cases() {
         sx={{
           position: "relative",
           zIndex: 2,
-          display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           minHeight: "100vh",
-          textAlign: "center",
         }}
       >
         <Navbar />
         <CaseStudies />
+        <Footer />
       </Box>
     </Box>
   );

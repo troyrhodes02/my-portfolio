@@ -30,7 +30,6 @@ export const NavbarMobile = () => {
   const handleNavigation = (path: string) => () => {
     setDrawerOpen(false);
     if (path === "/#contact") {
-
       window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
       return;
     }

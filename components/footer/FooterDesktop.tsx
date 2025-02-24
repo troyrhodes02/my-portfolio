@@ -1,7 +1,11 @@
-import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import React from "react";
+import { Box, Typography, Button } from "@mui/material";
 
 export const FooterDesktop = () => {
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <Box component="footer" sx={footerStyles}>
       <Box sx={textureOverlayStyles} />
@@ -31,6 +35,9 @@ export const FooterDesktop = () => {
           >
             Email
           </Button>
+          <Button onClick={handleBackToTop} sx={bubbleButtonStyles}>
+            Back to Top
+          </Button>
         </Box>
       </Box>
     </Box>
@@ -38,70 +45,70 @@ export const FooterDesktop = () => {
 };
 
 const footerStyles = {
-  position: 'relative',
+  position: "relative",
   backgroundImage: "url('/metal.jpg')",
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
   p: 4,
-  overflow: 'hidden',
-  color: '#fff',
+  overflow: "hidden",
+  color: "#fff",
 };
 
 const textureOverlayStyles = {
-  position: 'absolute',
+  position: "absolute",
   top: 0,
   left: 0,
-  width: '100%',
-  height: '100%',
-  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  width: "100%",
+  height: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.7)",
   zIndex: 0,
 };
 
 const contentWrapperStyles = {
-  position: 'relative',
+  position: "relative",
   zIndex: 1,
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  flexWrap: 'wrap',
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  flexWrap: "wrap",
 };
 
 const leftSectionStyles = {
-  flex: '1 1 auto',
+  flex: "1 1 auto",
 };
 
 const companyNameStyles = {
   m: 0,
-  fontSize: '2.5rem', 
-  fontWeight: 700, 
-  letterSpacing: '5px',
+  fontSize: "2.5rem",
+  fontWeight: 700,
+  letterSpacing: "5px",
 };
 
 const copyStyles = {
-  fontSize: '0.9rem',
+  fontSize: "0.9rem",
   mt: 1,
 };
 
 const rightSectionStyles = {
-  flex: '1 1 auto',
-  display: 'flex',
-  justifyContent: 'flex-end',
+  flex: "1 1 auto",
+  display: "flex",
+  justifyContent: "flex-end",
   gap: 2,
 };
 
 const bubbleButtonStyles = {
-  backgroundColor: '#fff',
-  color: '#050522',
-  borderRadius: '50px',
+  backgroundColor: "#fff",
+  color: "#050522",
+  borderRadius: "50px",
   fontWeight: 600,
-  boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-  textTransform: 'none',
-  textDecoration: 'none',
+  boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+  textTransform: "none",
+  textDecoration: "none",
   px: 3,
-  py: 1.25, 
-  fontSize: '1.1rem', 
-  '&:hover': {
-    backgroundColor: '#f0f0f0',
+  py: 1.25,
+  fontSize: "1.1rem",
+  "&:hover": {
+    backgroundColor: "#f0f0f0",
   },
 };
 

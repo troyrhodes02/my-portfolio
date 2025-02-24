@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import { motion } from "framer-motion";
@@ -49,7 +47,7 @@ export const MoreProjectsDesktop = () => {
       backgroundColor: "#fff",
       textColor: "#a81d14",
       description: "GoNext Sports",
-      route: "https://gonextsports.com",
+      route: "https://gonext-landing.vercel.app/",
     },
   ];
 

@@ -42,7 +42,7 @@ export const MoreProjectsMobile = () => {
         />
       ),
       backgroundColor: "#fff",
-      route: "https://gonextsports.com",
+      route: "https://gonext-landing.vercel.app/",
     },
   ];
 
