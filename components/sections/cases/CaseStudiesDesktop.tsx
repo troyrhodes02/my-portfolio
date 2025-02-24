@@ -187,7 +187,7 @@ export const CaseStudiesDesktop = () => {
                           e.stopPropagation();
                           window.open(
                             "https://premierleaf.com/wellness-app",
-                            "_blank"
+                            "_blank",
                           );
                         }}
                       >
