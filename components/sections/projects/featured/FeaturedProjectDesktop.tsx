@@ -35,40 +35,15 @@ export const FeaturedProjectDesktop = () => {
           sx={{
             color: "white",
             fontWeight: "800",
-            fontSize: "5rem",
+            fontSize: "7rem",
             textAlign: "center",
             fontStyle: "italic",
+            paddingBottom: "50px",
+            letterSpacing: "10px",
           }}
         >
           My Featured Project
         </Typography>
-        <Box
-          component={motion.div}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          sx={{
-            width: "160px",
-            height: "145px",
-            position: "relative",
-            backgroundColor: "#FFFFFF",
-            borderRadius: "51px",
-            overflow: "hidden",
-            display: "flex",
-            justifyContent: "center",
-            boxShadow: "-10px 10px 10px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          <Image
-            src="/me3.png"
-            alt="Character Avatar"
-            layout="intrinsic"
-            width={150}
-            height={178}
-            objectFit="cover"
-            priority
-          />
-        </Box>
       </Stack>
 
       <Stack
@@ -88,7 +63,8 @@ export const FeaturedProjectDesktop = () => {
             cursor: "pointer",
             boxShadow: "-10px 10px 20px rgba(0, 0, 0, 0.2)",
             borderRadius: "10px",
-            width: { xs: "100%", md: "1500px" },
+            width: "100%",
+            maxWidth: "350px",
             overflow: "hidden",
           }}
           onClick={() => window.open("https://premierleaf.com", "_blank")}
@@ -102,7 +78,6 @@ export const FeaturedProjectDesktop = () => {
             objectFit="cover"
           />
         </Box>
-
         <Stack
           sx={{
             maxWidth: "650px",

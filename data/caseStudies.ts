@@ -314,6 +314,189 @@ export const caseStudies: CaseStudy[] = [
     finalThoughts:
       "The PremierLeaf Wellness Mobile App project was a valuable experience in full-stack mobile development, team collaboration, and feature-driven implementation. By integrating GraphQL, Firebase, and React Native, I contributed to a high-impact wellness app that prioritizes user engagement and long-term scalability. This project showcases my technical expertise, problem-solving approach, and ability to deliver results in a fast-paced development environment.",
   },
+  {
+    id: "gonext",
+    title: "GoNext Web & Mobile App",
+    headerImage: "/gonextsite.png",
+    projectOverview: {
+      missionStatement:
+        "Simplify your event management, enhance the participant experience, and take your basketball events to new heights. Get started today and experience the difference!",
+      targetAudience:
+        "Pro-Am players, teams, and leagues looking for an intuitive platform to manage events, payments, and team coordination.",
+    },
+    myContributions: [
+      {
+        title: "Cross-Platform Feature Development & Engineering",
+        details: [
+          "Contributed to the development of the GoNext mobile app and web app using React Native, TypeScript, Node.js, and MongoDB.",
+          "Created a recurring events feature that allows coaches and admins to schedule recurring practices, games, and events, which automatically populate their team’s calendar.",
+          "Developed and implemented the same event scheduling feature across both mobile and web platforms, ensuring seamless synchronization and usability.",
+        ],
+      },
+      {
+        title: "Payment Integration & Transaction Management",
+        details: [
+          "Assisted in integrating and testing Stripe payment processing, ensuring a smooth transaction process for users.",
+          "Helped streamline transactions exceeding $15,000, applying agile methodologies and rigorous QA testing to ensure financial accuracy and security.",
+        ],
+      },
+      {
+        title: "Strategic Collaboration & Performance Optimization",
+        details: [
+          "Worked closely with design and marketing teams to maintain brand consistency across mobile and web platforms, aligning with the company’s wellness-focused initiatives.",
+          "Participated in KPI review and analysis with the engineering team, providing insights to align technical efforts with strategic business objectives.",
+          "Leveraged Google Cloud Platform to optimize backend services and ensure scalability for future growth.",
+        ],
+      },
+    ],
+    techStack: [
+      "React Native",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "Google Cloud Platform",
+      "Stripe",
+    ],
+    challenges: [
+      {
+        title: "Implementing Recurring Events for Teams",
+        problem:
+          "Developing a robust event scheduling feature that allows coaches and admins to plan recurring practices, games, and other events while ensuring calendar synchronization.",
+        solution: [
+          "Designed a modular event scheduling system that dynamically populates team calendars with recurring events.",
+          "Applied MongoDB NoSQL data structuring to efficiently store and retrieve recurring event patterns.",
+          "Ensured cross-platform consistency by implementing the feature on both mobile and web applications.",
+        ],
+      },
+      {
+        title: "Secure & Scalable Payment Processing",
+        problem:
+          "Integrating Stripe payment processing while ensuring secure and smooth transactions for users.",
+        solution: [
+          "Collaborated with the engineering team to implement secure API endpoints for transaction handling.",
+          "Conducted thorough QA testing to ensure smooth payment processing and reduce transaction errors.",
+          "Successfully helped process transactions exceeding $15,000, ensuring seamless financial operations.",
+        ],
+      },
+      {
+        title: "Aligning Technical Development with Business Goals",
+        problem:
+          "Ensuring that technical efforts were aligned with GoNext’s strategic initiatives for Pro-Am players, teams, and leagues.",
+        solution: [
+          "Participated in KPI reviews and data analysis to understand the impact of new features on user engagement.",
+          "Provided engineering insights that helped shape future feature roadmaps and business strategies.",
+          "Maintained consistent collaboration with stakeholders to ensure that development efforts aligned with company objectives.",
+        ],
+      },
+    ],
+    results: [
+      "Successfully contributed to the beta launch of GoNext’s mobile and web applications within 60 days, helping the platform reach 100+ active users.",
+      "Developed the recurring events feature, making team management more efficient and automated for coaches and admins.",
+      "Helped streamline over $15,000 in transactions through secure and optimized Stripe payment integration.",
+      "Ensured brand cohesion and user experience consistency across both mobile and web platforms.",
+    ],
+    keyTakeaways: [
+      "Strengthened expertise in cross-platform development, NoSQL databases, and payment processing integrations.",
+      "Improved collaboration skills with design, marketing, and business teams.",
+      "Future enhancements include expanding analytics tracking, improving team communication tools, and enhancing Stripe payment features.",
+    ],
+    finalThoughts:
+      "The GoNext project provided hands-on experience in cross-platform mobile and web development, strategic product alignment, and high-impact feature implementation. By successfully integrating event management, payment processing, and KPI-driven insights, I contributed to a scalable and user-focused platform that supports basketball teams, coaches, and leagues in managing their events more effectively. This case study highlights my technical expertise, problem-solving capabilities, and ability to execute projects in fast-paced development environments.",
+  },
+  {
+    id: "politimap",
+    title: "PolitiMap Mobile App",
+    headerImage: "/politimap1.png",
+    projectOverview: {
+      missionStatement:
+        "PolitiMap is a comprehensive civic engagement platform designed to address the critical gaps in civic education and fragmented political information. The app provides users with centralized, accessible, and interactive resources to understand their political landscape better, engage with their representatives, and stay informed about civic matters. By tackling these gaps, PolitiMap empowers citizens to become more knowledgeable and active participants in their democracy.",
+      targetAudience:
+        "Citizens looking for a user-friendly, informative, and interactive platform to enhance their political awareness and engagement.",
+    },
+    myContributions: [
+      {
+        title: "Leadership & Project Management",
+        details: [
+          "Led a team of four junior software engineers, overseeing sprint planning, task delegation, and progress tracking.",
+          "Hosted and facilitated development meetings, ensuring smooth collaboration and alignment on project goals.",
+          "Conducted progress presentations, keeping stakeholders informed about development milestones and key implementations.",
+        ],
+      },
+      {
+        title: "Feature Development & System Integration",
+        details: [
+          "Developed and implemented multiple UI components to enhance usability and user engagement.",
+          "Integrated Google Firebase authentication for secure account management, ensuring a seamless sign-up and login experience.",
+          "Integrated Mapbox API to enable an interactive, location-based political map, displaying boundaries, representative locations, and party affiliations.",
+          "Used GraphQL with Apollo Server to optimize queries, mutations, and overall data management, ensuring efficient and smooth application performance.",
+        ],
+      },
+      {
+        title: "Core Functionalities Implemented",
+        details: [
+          "Politician Profiles: Detailed politician profiles with contact info, social media links, voting records, recent news, and key supported issues.",
+          "Interactive Map Interface: Displays political boundaries, representatives' locations, and party affiliations.",
+          "Notifications & Community Updates: Alerts users about upcoming elections, legislative updates, and community meetings.",
+          "Advanced Search & Filtering: Enables users to search for politicians by name, position, party affiliation, or specific policy issues.",
+        ],
+      },
+    ],
+    techStack: [
+      "React Native",
+      "Expo",
+      "Node.js",
+      "TypeScript",
+      "MongoDB",
+      "GraphQL",
+      "Apollo Server",
+      "Mapbox",
+      "Google Firebase",
+    ],
+    challenges: [
+      {
+        title: "Managing a Team While Developing",
+        problem:
+          "Balancing leadership responsibilities with active development tasks while ensuring all team members contributed effectively.",
+        solution: [
+          "Implemented an Agile workflow using structured sprint planning and task delegation.",
+          "Held weekly stand-up meetings to track progress and address roadblocks.",
+          "Provided technical mentorship to junior engineers, improving overall team productivity and skill development.",
+        ],
+      },
+      {
+        title: "Optimizing Data Management & API Performance",
+        problem:
+          "Ensuring efficient data fetching and real-time updates across multiple application features while handling complex political data.",
+        solution: [
+          "Used GraphQL Apollo Server to optimize data fetching, reducing unnecessary network requests and improving app performance.",
+          "Implemented query caching and pagination, ensuring fast response times and smooth user interactions.",
+        ],
+      },
+      {
+        title: "Building an Interactive & Real-Time Political Map",
+        problem:
+          "Integrating real-time political boundary data and representative locations in an easy-to-use, interactive interface.",
+        solution: [
+          "Implemented Mapbox API to provide an intuitive, real-time visual representation of political boundaries and representatives.",
+          "Ensured seamless map navigation and filtering, allowing users to explore political data dynamically.",
+        ],
+      },
+    ],
+    results: [
+      "Successfully led the development of a fully functional beta version of PolitiMap.",
+      "Created an interactive, user-friendly political engagement platform that centralizes key civic information.",
+      "Integrated Google Firebase authentication, improving security and user experience.",
+      "Developed a real-time interactive map to visualize political districts and representatives, enhancing user engagement.",
+      "Implemented GraphQL for optimized data handling, reducing query times and improving app responsiveness.",
+    ],
+    keyTakeaways: [
+      "Leadership & Team Growth: Strengthened skills in managing a development team, ensuring project milestones were met efficiently.",
+      "Technical Advancement: Gained deeper expertise in GraphQL, Apollo Server, Firebase authentication, and Mapbox integrations.",
+      "Future Enhancements: Plans to implement real-time civic engagement tools, expand the politician database, and improve community-driven data submission.",
+    ],
+    finalThoughts:
+      "The PolitiMap project was an exciting and impactful experience, merging civic engagement, data visualization, and interactive UI design. By leveraging React Native, GraphQL, Firebase, and Mapbox, I helped build a platform that provides users with centralized, real-time political information. This case study highlights my ability to lead teams, develop scalable solutions, and solve complex engineering challenges, making it a strong addition to my software engineering portfolio.",
+  }  
 ];
 
 export function getAllCaseStudies(): CaseStudy[] {

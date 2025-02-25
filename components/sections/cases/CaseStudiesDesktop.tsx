@@ -61,7 +61,7 @@ export const CaseStudiesDesktop = () => {
               >
                 <Box
                   sx={{
-                    width: "800px",
+                    width: "100%",
                     height: "100%",
                     backgroundColor: study.backgroundColor || "#333",
                     display: "flex",
@@ -192,6 +192,28 @@ export const CaseStudiesDesktop = () => {
                         }}
                       >
                         Get App
+                      </Button>
+                    )}
+                    {study.id === "gonext" && (
+                      <Button
+                        variant="contained"
+                        sx={{
+                          backgroundColor: "white",
+                          color: "black",
+                          borderRadius: "20px",
+                          fontWeight: "bold",
+                          width: "200px",
+                          "&:hover": { backgroundColor: "white" },
+                        }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(
+                            "https://gonext-landing.vercel.app/",
+                            "_blank",
+                          );
+                        }}
+                      >
+                        View Site
                       </Button>
                     )}
                   </Box>

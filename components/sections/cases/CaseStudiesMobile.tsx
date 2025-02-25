@@ -118,7 +118,9 @@ export const CaseStudiesMobile = () => {
                   >
                     Case Study
                   </Button>
-                  {(study.link || study.id === "premierleaf") && (
+                  {(study.link ||
+                    study.id === "premierleaf" ||
+                    study.id === "gonext") && (
                     <Button
                       variant="contained"
                       sx={{
@@ -134,6 +136,8 @@ export const CaseStudiesMobile = () => {
                         const link =
                           study.id === "premierleaf"
                             ? "https://premierleaf.com"
+                            : study.id === "gonext"
+                            ? "https://gonext-landing.vercel.app/"
                             : study.link;
                         window.open(link, "_blank");
                       }}

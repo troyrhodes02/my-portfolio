@@ -33,21 +33,73 @@ export default async function CaseStudyPage({
   }
   const contributions =
     caseStudy.myContributions || caseStudy.contributions || [];
+
+  // Conditions for specific case studies
   const isYoungStarWorld = caseStudy.id === "youngstarworld";
-  const cardBg = isYoungStarWorld ? "#888888" : "white";
-  const cardTextColor = isYoungStarWorld ? "white" : "black";
-  const containerTextColor = isYoungStarWorld ? "white" : "black";
+  const isGoNext = caseStudy.id === "gonext";
+  const isPolitiMap = caseStudy.id === "politimap";
+  const isPremierLeaf = caseStudy.id === "premierleaf";
+  const isPremierLeafWellness = caseStudy.id === "premierleaf-wellness";
+
+  const cardBg = isYoungStarWorld
+    ? "#ab100b"
+    : isGoNext
+    ? "#fd8601"
+    : isPolitiMap
+    ? "#25324dff"
+    : isPremierLeaf
+    ? "#103831"
+    : isPremierLeafWellness
+    ? "#7d6747"
+    : "white";
+  const cardTextColor =
+    isYoungStarWorld ||
+    isGoNext ||
+    isPolitiMap ||
+    isPremierLeaf ||
+    isPremierLeafWellness
+      ? "white"
+      : "black";
+  const containerTextColor =
+    isYoungStarWorld ||
+    isGoNext ||
+    isPolitiMap ||
+    isPremierLeaf ||
+    isPremierLeafWellness
+      ? "white"
+      : "black";
+
   const baseCardStyle = {
     borderRadius: "16px",
     boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
     mb: { xs: 2, sm: 4 },
     p: { xs: 2, sm: 4 },
+    position: "relative",
+    overflow: "hidden",
   };
+
   const cardStyle = {
     ...baseCardStyle,
     backgroundColor: cardBg,
     color: cardTextColor,
   };
+
+  const backgroundOverlay = (
+    <Box
+      sx={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: "url(/smooth3.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        opacity: 0.3,
+        zIndex: 0,
+      }}
+    />
+  );
 
   return (
     <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
@@ -63,7 +115,8 @@ export default async function CaseStudyPage({
         }}
       >
         <Card sx={{ ...cardStyle, p: { xs: 1, sm: 2 } }}>
-          <CardContent>
+          {backgroundOverlay}
+          <CardContent sx={{ position: "relative", zIndex: 1 }}>
             <Box sx={{ textAlign: "center", mb: { xs: 2, sm: 4 } }}>
               <Image
                 src={caseStudy.headerImage}
@@ -87,7 +140,8 @@ export default async function CaseStudyPage({
           </CardContent>
         </Card>
         <Card sx={{ ...cardStyle }}>
-          <CardContent>
+          {backgroundOverlay}
+          <CardContent sx={{ position: "relative", zIndex: 1 }}>
             <Typography
               variant="h4"
               sx={{
@@ -127,7 +181,8 @@ export default async function CaseStudyPage({
         </Card>
         {contributions.length > 0 && (
           <Card sx={{ ...cardStyle }}>
-            <CardContent>
+            {backgroundOverlay}
+            <CardContent sx={{ position: "relative", zIndex: 1 }}>
               <Typography
                 variant="h4"
                 sx={{
@@ -185,7 +240,8 @@ export default async function CaseStudyPage({
         )}
         {caseStudy.techStack && (
           <Card sx={{ ...cardStyle }}>
-            <CardContent>
+            {backgroundOverlay}
+            <CardContent sx={{ position: "relative", zIndex: 1 }}>
               <Typography
                 variant="h4"
                 sx={{
@@ -211,7 +267,8 @@ export default async function CaseStudyPage({
         )}
         {caseStudy.challenges && (
           <Card sx={{ ...cardStyle }}>
-            <CardContent>
+            {backgroundOverlay}
+            <CardContent sx={{ position: "relative", zIndex: 1 }}>
               <Typography
                 variant="h4"
                 sx={{
@@ -283,7 +340,8 @@ export default async function CaseStudyPage({
         )}
         {caseStudy.results && (
           <Card sx={{ ...cardStyle }}>
-            <CardContent>
+            {backgroundOverlay}
+            <CardContent sx={{ position: "relative", zIndex: 1 }}>
               <Typography
                 variant="h4"
                 sx={{
@@ -320,7 +378,8 @@ export default async function CaseStudyPage({
         )}
         {caseStudy.keyTakeaways && (
           <Card sx={{ ...cardStyle }}>
-            <CardContent>
+            {backgroundOverlay}
+            <CardContent sx={{ position: "relative", zIndex: 1 }}>
               <Typography
                 variant="h4"
                 sx={{
@@ -357,7 +416,8 @@ export default async function CaseStudyPage({
         )}
         {caseStudy.finalThoughts && (
           <Card sx={{ ...cardStyle }}>
-            <CardContent>
+            {backgroundOverlay}
+            <CardContent sx={{ position: "relative", zIndex: 1 }}>
               <Typography
                 variant="h4"
                 sx={{

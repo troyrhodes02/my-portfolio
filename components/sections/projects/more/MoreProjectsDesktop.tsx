@@ -31,6 +31,7 @@ export const MoreProjectsDesktop = () => {
       backgroundColor: "#FFFFFF",
       textColor: "#a81d14",
       description: "PolitiMap",
+      route: "/cases/politimap", // Added route to navigate to PolitiMap case study
     },
     {
       id: 3,
@@ -110,7 +111,7 @@ export const MoreProjectsDesktop = () => {
             fontSize: "26px",
           }}
         >
-          Browse through the carousel and click on any card to visit or learn
+          Browse through the carousel and click on any card to visit and learn
           more about each project.
         </Typography>
       </motion.div>

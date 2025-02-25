@@ -60,7 +60,7 @@ const textureOverlayStyles = {
   left: 0,
   width: "100%",
   height: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.7)", // Darker overlay for better contrast
+  backgroundColor: "rgba(0, 0, 0, 0.7)",
   zIndex: 0,
 };
 
@@ -81,7 +81,7 @@ const topSectionStyles = {
 
 const companyNameStyles = {
   m: 0,
-  fontSize: "2rem", // Slightly smaller than desktop
+  fontSize: "2rem",
   fontWeight: 700,
   letterSpacing: "3px",
 };
