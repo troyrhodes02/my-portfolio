@@ -28,6 +28,7 @@ export const MoreProjectsMobile = () => {
         />
       ),
       backgroundColor: "#FFFFFF",
+      route: "/cases/politimap", // Added route to navigate to PolitiMap case study
     },
     {
       id: 3,
@@ -81,7 +82,7 @@ export const MoreProjectsMobile = () => {
             marginBottom: 4,
           }}
         >
-          Browse through the projects and tap on any card to visit or learn
+          Browse through the projects and tap on any card to visit and learn
           more.
         </Typography>
       </motion.div>
