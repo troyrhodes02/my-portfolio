@@ -72,7 +72,7 @@ export const CaseStudiesMobile = () => {
                     />
                   </Box>
                 </Card>
-                <Box sx={{ mt: 1, p: 1 }}>
+                <Box sx={{ mt: 1, p: 1, textAlign: "center" }}>
                   <Typography
                     variant="h6"
                     sx={{
