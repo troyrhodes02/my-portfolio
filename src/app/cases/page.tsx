@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef } from "react";
 import { Box } from "@mui/material";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { Navbar } from "../../../components/navbar/Navbar";
 import { CaseStudies } from "../../../components/sections/cases/CaseStudies";
 import Footer from "../../../components/footer/Footer";
